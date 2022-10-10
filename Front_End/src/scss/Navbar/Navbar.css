@@ -1,0 +1,22 @@
+.cart-icon {
+  position: relative;
+}
+.cart-icon .cart-text {
+  position: relative;
+  top: -30px;
+  right: -20px;
+  color: #fff;
+  width: 15px;
+  height: 15px;
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.active-link {
+  color: #de4352;
+}/*# sourceMappingURL=Navbar.css.map */

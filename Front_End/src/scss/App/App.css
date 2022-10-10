@@ -11,14 +11,6 @@ body {
   background-color: #f8f9fa;
 }
 
-section {
-  border: 2px solid red !important;
-}
-
-div {
-  border: 2px solid green !important;
-}
-
 nav,
 button {
   font-family: "Abyssinica SIL", serif;
