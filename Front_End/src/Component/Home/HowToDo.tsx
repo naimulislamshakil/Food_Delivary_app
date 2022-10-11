@@ -4,6 +4,7 @@ import appStore from '../../assets/how/appstore.png';
 import playStore from '../../assets/how/play-store.png';
 import rode from '../../assets/how/step-illustration.png';
 import select from '../../assets/how/Select-and-set-your-food.jpg';
+import order from '../../assets/how/pathao-food-delivery.jpg';
 import '../../scss/App/App.css';
 
 const HowToDo = () => {
@@ -61,6 +62,22 @@ const HowToDo = () => {
 							Select the food you want from thousands of restaurants.
 						</h4>
 					</div>
+				</div>
+			</div>
+			{/* row 04 */}
+			<div className="row mt-5">
+				<div className="col-12 col-lg-7 d-flex flex-column justify-content-center align-items-start">
+					<h2 className="h1 text-color-number">03</h2>
+					<div>
+						<h2>Confirm your order and wait</h2>
+						<h4 className="text-color">
+							Just confirm your order and enjoy our fastest delivery. Fresh and
+							delicious food will be delivered to your doorstep.
+						</h4>
+					</div>
+				</div>
+				<div className="col-12 col-lg-5">
+					<img src={order} alt="" />
 				</div>
 			</div>
 		</section>
