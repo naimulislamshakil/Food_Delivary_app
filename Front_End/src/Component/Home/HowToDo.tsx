@@ -3,6 +3,7 @@ import knife from '../../assets/how/icon-food.jpg';
 import appStore from '../../assets/how/appstore.png';
 import playStore from '../../assets/how/play-store.png';
 import rode from '../../assets/how/step-illustration.png';
+import select from '../../assets/how/Select-and-set-your-food.jpg';
 import '../../scss/App/App.css';
 
 const HowToDo = () => {
@@ -48,6 +49,20 @@ const HowToDo = () => {
 				</div>
 			</div>
 			{/* row 03 */}
+			<div className="row">
+				<div className="col-12 col-lg-5">
+					<img src={select} alt="" />
+				</div>
+				<div className="col-12 col-lg-7">
+					<h2 className="h1 text-color-number">02</h2>
+					<div>
+						<h2>Select and set your food</h2>
+						<h4 className="text-color">
+							Select the food you want from thousands of restaurants.
+						</h4>
+					</div>
+				</div>
+			</div>
 		</section>
 	);
 };
