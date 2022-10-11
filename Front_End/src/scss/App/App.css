@@ -45,6 +45,13 @@ p {
   font-weight: 400;
 }
 
+.text-color-number {
+  color: #e6e8eb;
+  font-weight: 900;
+  margin-left: 50px;
+  margin-top: 20px;
+}
+
 .font {
   font-weight: 300;
   text-align: center;
