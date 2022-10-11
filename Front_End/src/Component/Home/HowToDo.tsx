@@ -2,7 +2,7 @@ import applogo from '../../assets/how/Patha-food.png';
 import knife from '../../assets/how/icon-food.jpg';
 import appStore from '../../assets/how/appstore.png';
 import playStore from '../../assets/how/play-store.png';
-import rode from '';
+import rode from '../../assets/how/step-illustration.png';
 import '../../scss/App/App.css';
 
 const HowToDo = () => {
@@ -44,9 +44,10 @@ const HowToDo = () => {
 			{/* row 02 */}
 			<div className="row">
 				<div className="col-12">
-					<img src={} alt="" />
+					<img className="img-fluid" src={rode} alt="" />
 				</div>
 			</div>
+			{/* row 03 */}
 		</section>
 	);
 };
