@@ -41,4 +41,49 @@ p {
 	color: #966464;
 	font-weight: 400;
 }
+
+// Location section
+.font {
+	font-weight: 300;
+	text-align: center;
+}
+.image {
+	overflow: hidden;
+	outline: none;
+	border: 0;
+	border-radius: 10px;
+	position: relative;
+	.image_img {
+		display: block;
+	}
+	.image_overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background-color: rgba(0, 0, 0, 0.6);
+		color: #fff;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		opacity: 0;
+		transition: opacity 0.5s ease-in-out;
+		& > * {
+			transform: translateY(20px);
+			transition: transform 0.5s;
+		}
+		&:hover {
+			opacity: 1;
+		}
+		&:hover > * {
+			transform: translateY(0);
+		}
+	}
+	.image_title {
+		font-size: 1.75rem;
+		font-weight: 400;
+	}
+}
+
 /*# sourceMappingURL=App.css.map */

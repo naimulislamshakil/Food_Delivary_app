@@ -45,4 +45,48 @@ p {
   font-weight: 400;
 }
 
+.font {
+  font-weight: 300;
+  text-align: center;
+}
+
+.image {
+  overflow: hidden;
+  outline: none;
+  border: 0;
+  border-radius: 10px;
+  position: relative;
+}
+.image .image_img {
+  display: block;
+}
+.image .image_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.image .image_overlay > * {
+  transform: translateY(20px);
+  transition: transform 0.5s;
+}
+.image .image_overlay:hover {
+  opacity: 1;
+}
+.image .image_overlay:hover > * {
+  transform: translateY(0);
+}
+.image .image_title {
+  font-size: 1.75rem;
+  font-weight: 400;
+}
+
 /*# sourceMappingURL=App.css.map *//*# sourceMappingURL=App.css.map */

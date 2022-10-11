@@ -10,6 +10,7 @@ import rangpur from '../../assets/place/rangpur.jpg';
 import pirojpur from '../../assets/place/pirojpur.jpg';
 import chandpur from '../../assets/place/chandpur.jpg';
 import bhola from '../../assets/place/bhola.jpg';
+import '../../scss/App/App.css';
 
 const CityItem = [
 	{
@@ -75,7 +76,25 @@ const CityItem = [
 ];
 
 const Location = () => {
-	return <section className="container-fluid"></section>;
+	return (
+		<section className="container-fluid">
+			<h2 className="font">Find us in these town and many more!</h2>
+			<div className="row">
+				{CityItem.map((item, index) => (
+					<div
+						className="col-lg-4 col-12 col-md-6 image mx-auto mb-3"
+						style={{ maxWidth: '18rem', maxHeight: '10rem' }}
+					>
+						<img src={item.img} className="img-fluid image_img " alt="" />
+
+						<div className="image_overlay">
+							<h5 className="image_title">{item.name}</h5>
+						</div>
+					</div>
+				))}
+			</div>
+		</section>
+	);
 };
 
 export default Location;
