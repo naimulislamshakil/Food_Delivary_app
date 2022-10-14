@@ -1,5 +1,6 @@
 import React from 'react';
 import Banner from './Banner';
+import Brands from './Brands';
 import Category from './Category';
 import HowToDo from './HowToDo';
 import Location from './Location';
@@ -13,6 +14,7 @@ const Home = () => {
 			<Service />
 			<Location />
 			<HowToDo />
+			<Brands />
 		</div>
 	);
 };

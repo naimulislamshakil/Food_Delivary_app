@@ -84,7 +84,10 @@ const HowToDo = () => {
 			</div>
 			{/* row 05 */}
 			<div className="row mt-5">
-				<div className="col-12 col-lg-7 d-flex flex-column justify-content-center align-items-start">
+				<div className="col-12 col-lg-5">
+					<img src={cash} className="img-fluid" alt="" />
+				</div>
+				<div className="col-12 col-lg-7 d-flex flex-column justify-content-center align-items-center">
 					<h2 className="h1 text-color-number">04</h2>
 					<div>
 						<h2>Pay Cashless for your Food</h2>
@@ -100,9 +103,6 @@ const HowToDo = () => {
 							<i className="bi bi-arrow-right ms-2"></i>
 						</Link>
 					</div>
-				</div>
-				<div className="col-12 col-lg-5">
-					<img src={cash} className="img-fluid" alt="" />
 				</div>
 			</div>
 		</section>
