@@ -7,6 +7,7 @@ import bur from '../../assets/brands/Res_logo_9.png';
 import the from '../../assets/brands/Res_logo_10.png';
 import pizz from '../../assets/brands/Res_logo_11.png';
 import burg from '../../assets/brands/Res_logo_12.png';
+import '../../scss/App/App.css';
 
 const brands = [
 	{
@@ -49,7 +50,7 @@ const brands = [
 
 const Brands = () => {
 	return (
-		<section className="container-fluid mt-3">
+		<section className="container-fluid mt-5">
 			<h2 className="h1">Some of our top partners</h2>
 			<div className="row">
 				{brands.map((brand, index) => (
@@ -57,7 +58,7 @@ const Brands = () => {
 						title={brand.tooltip}
 						style={{ cursor: 'pointer' }}
 						key={index}
-						className="col-12 col-md-2 mx-auto mt-2"
+						className="col-12 col-md-2 mx-auto mt-2 card-item"
 					>
 						<img className="img-fluid" src={brand.logo} alt="" />
 					</div>
