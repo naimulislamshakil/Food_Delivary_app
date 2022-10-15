@@ -11,6 +11,7 @@ import pirojpur from '../../assets/place/pirojpur.jpg';
 import chandpur from '../../assets/place/chandpur.jpg';
 import bhola from '../../assets/place/bhola.jpg';
 import '../../scss/App/App.css';
+import { useNavigate } from 'react-router-dom';
 
 const CityItem = [
 	{
@@ -76,12 +77,19 @@ const CityItem = [
 ];
 
 const Location = () => {
+	const navigate = useNavigate();
+
+	const getStore = (location: string) => {
+		navigate(`/location/${location}`);
+	};
 	return (
 		<section className="container-fluid">
 			<h2 className="font">Find us in these town and many more!</h2>
 			<div className="row">
 				{CityItem.map((item, index) => (
 					<div
+						key={index}
+						onClick={() => getStore(item.name)}
 						className="col-lg-4 col-12 col-md-6 image mx-auto mb-3"
 						style={{ maxWidth: '18rem', maxHeight: '10rem' }}
 					>
