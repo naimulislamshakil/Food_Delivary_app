@@ -1,6 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
+import AboutUs from './Component/AboutUs';
+import ContactUs from './Component/ContactUs';
 import Fooder from './Component/Fooder/Fooder';
 import Home from './Component/Home/Home';
+import Location from './Component/Home/Location';
 import NavBar from './Component/NavBar/NavBar';
 import './scss/App/App.css';
 
@@ -10,6 +13,9 @@ function App() {
 			<NavBar />
 			<Routes>
 				<Route path="/" element={<Home />}></Route>
+				<Route path="/all_foods" element={<Location />}></Route>
+				<Route path="/about_us" element={<AboutUs />}></Route>
+				<Route path="/contact_us" element={<ContactUs />}></Route>
 			</Routes>
 			<Fooder />
 		</div>

@@ -1,49 +1,27 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/res-logo.png';
 import '../../scss/Navbar/Navbar.css';
 
 const NavBar = () => {
-	const [active, setActive] = useState(false);
 	const navbar = (
 		<>
 			<li className="nav-item">
-				<Link
-					onClick={() => setActive(!active)}
-					className="nav-link active"
-					aria-current="page"
-					to="/"
-				>
+				<Link className="nav-link active" aria-current="page" to="/">
 					Home
 				</Link>
 			</li>
 			<li className="nav-item">
-				<Link
-					onClick={() => setActive(!active)}
-					className="nav-link"
-					aria-current="page"
-					to="/"
-				>
+				<Link className="nav-link" aria-current="page" to="/all_foods">
 					All Food
 				</Link>
 			</li>
 			<li className="nav-item">
-				<Link
-					onClick={() => setActive(!active)}
-					className="nav-link"
-					aria-current="page"
-					to="/"
-				>
+				<Link className="nav-link" aria-current="page" to="/contact_us">
 					Contact Us
 				</Link>
 			</li>
 			<li className="nav-item">
-				<Link
-					onClick={() => setActive(!active)}
-					className="nav-link"
-					aria-current="page"
-					to="/"
-				>
+				<Link className="nav-link" aria-current="page" to="/about_us">
 					About Us
 				</Link>
 			</li>
