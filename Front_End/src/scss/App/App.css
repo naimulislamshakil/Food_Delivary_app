@@ -1,19 +1,19 @@
 *,
 *::before,
 *::after {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-	overflow-x: none;
-	background-color: #f8f9fa;
+  overflow-x: none;
+  background-color: #f8f9fa;
 }
 
 nav,
 button {
-	font-family: 'Abyssinica SIL', serif;
+  font-family: "Abyssinica SIL", serif;
 }
 
 h1,
@@ -23,77 +23,89 @@ h4,
 h5,
 h6,
 p {
-	font-family: 'Roboto Slab', serif;
+  font-family: "Roboto Slab", serif;
 }
 
 .para {
-	font-weight: 400;
-	font-size: 18px;
+  font-weight: 400;
+  font-size: 18px;
 }
 
 .card-item {
-	cursor: pointer;
-	transition: 0.5s ease-in-out;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
 }
 
 .card-item:hover {
-	transform: translateY(-10px);
+  transform: translateY(-10px);
 }
 
 .text-color {
-	color: #966464;
-	font-weight: 400;
+  color: #966464;
+  font-weight: 400;
 }
 
 .text-color-number {
-	color: #b8c3d3;
-	font-weight: 900;
-	margin-left: 50px;
-	margin-top: 20px;
+  color: #b8c3d3;
+  font-weight: 900;
+  margin-left: 50px;
+  margin-top: 20px;
 }
 
 .font {
-	font-weight: 300;
-	text-align: center;
+  font-weight: 300;
+  text-align: center;
 }
 
 .image {
-	overflow: hidden;
-	outline: none;
-	border: 0;
-	border-radius: 10px;
-	position: relative;
+  overflow: hidden;
+  outline: none;
+  border: 0;
+  border-radius: 10px;
+  position: relative;
 }
 .image .image_img {
-	display: block;
+  display: block;
 }
 .image .image_overlay {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	background-color: rgba(0, 0, 0, 0.6);
-	color: #fff;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	opacity: 0;
-	transition: opacity 0.5s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
 .image .image_overlay > * {
-	transform: translateY(20px);
-	transition: transform 0.5s;
+  transform: translateY(20px);
+  transition: transform 0.5s;
 }
 .image .image_overlay:hover {
-	opacity: 1;
+  opacity: 1;
 }
 .image .image_overlay:hover > * {
-	transform: translateY(0);
+  transform: translateY(0);
 }
 .image .image_title {
-	font-size: 1.75rem;
-	font-weight: 400;
+  font-size: 1.75rem;
+  font-weight: 400;
 }
 
-/*# sourceMappingURL=App.css.map */ /*# sourceMappingURL=App.css.map */
+.fooder-icon {
+  margin-top: 20px;
+}
+.fooder-icon i {
+  font-size: 20px;
+  padding: 10px;
+  background: #000;
+  color: white;
+  border-radius: 30px;
+  margin-left: 10px;
+}
+
+/*# sourceMappingURL=App.css.map *//*# sourceMappingURL=App.css.map */

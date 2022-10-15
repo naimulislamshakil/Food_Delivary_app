@@ -1,5 +1,6 @@
 import logo from '../../assets/images/res-logo.png';
 import { Link } from 'react-router-dom';
+import '../../scss/App/App.css';
 
 const Fooder = () => {
 	const d = new Date();
@@ -131,6 +132,15 @@ const Fooder = () => {
 								</div>
 							</div>
 						</div>
+					</div>
+				</div>
+				<div className="row">
+					<div className="col-12 text-center fooder-icon">
+						<i className="bi bi-facebook "></i>
+						<i className="bi bi-whatsapp "></i>
+						<i className="bi bi-github "></i>
+						<i className="bi bi-linkedin "></i>
+						<i className="bi bi-youtube "></i>
 					</div>
 				</div>
 			</div>
