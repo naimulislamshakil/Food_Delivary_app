@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const storeSchma = mongoose.Schema({
 	name: {
 		type: String,
-		require: [true, 'This field is require.'],
+		required: [true, 'This field is require.'],
 		unique: [true, 'Name shout be unique.'],
 		trim: true,
 		minLength: [5, 'Name shout be at least 5 letter.'],
@@ -11,7 +11,7 @@ const storeSchma = mongoose.Schema({
 	},
 	location: {
 		type: String,
-		require: [true, 'This field is require.'],
+		required: [true, 'This field is require.'],
 		enum: {
 			values: [
 				'Dhaka',
@@ -33,7 +33,7 @@ const storeSchma = mongoose.Schema({
 	tag: [String],
 	category: {
 		type: String,
-		require: [true, 'This field is require.'],
+		required: [true, 'This field is require.'],
 		enum: {
 			values: ['Rich', 'Fish', 'Vagetable', 'Biryani', 'Chicken', 'Soup'],
 			message:
@@ -42,7 +42,7 @@ const storeSchma = mongoose.Schema({
 	},
 	imgUrl: {
 		type: String,
-		require: [true, 'This field is require.'],
+		required: [true, 'This field is require.'],
 	},
 	status: {
 		type: String,
