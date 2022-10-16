@@ -6,15 +6,19 @@ const colors = require('colors');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
+// Import Route
+
 // Add Meddilware
 app.use(cors());
 app.use(express.json());
 
 // Add Database
-
 mongoose
 	.connect(process.env.DB)
 	.then(() => console.log('Database connected successfully.'.red.bold));
+
+// CAll Route
+app.use('/api/v1', storeRoute);
 
 // Home Route
 app.get('/', (req, res) => {

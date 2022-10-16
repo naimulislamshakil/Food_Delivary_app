@@ -66,3 +66,5 @@ const storeSchma = mongoose.Schema({
 		},
 	},
 });
+
+module.exports.Store = mongoose.model('Store', storeSchma);
