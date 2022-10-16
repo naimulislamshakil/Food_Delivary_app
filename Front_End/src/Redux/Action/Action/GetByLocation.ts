@@ -8,14 +8,15 @@ import {
 } from '../ActionType/GetByLocation';
 
 export const GetStoreByLocation =
-	() => async (dispatch: Dispatch<StoreDispatchType>) => {
+	(location: string | undefined) =>
+	async (dispatch: Dispatch<StoreDispatchType>) => {
 		try {
 			dispatch({
 				type: STORE_LOADING,
 			});
 
 			const res = await axios.get(
-				'http://localhost:5000/api/v1/product/popular'
+				`http://localhost:5000/api/v1/storebylocation?location=${location}`
 			);
 
 			dispatch({

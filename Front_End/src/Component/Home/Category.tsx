@@ -28,7 +28,10 @@ const Category = () => {
 		<section className="container-fluid py-2">
 			<div className="row">
 				{CategoryItem.map((item, index) => (
-					<div className="card-item col-12 col-md-6 col-lg-3 d-flex flex-column justify-content-center align-items-center">
+					<div
+						key={index}
+						className="card-item col-12 col-md-6 col-lg-3 d-flex flex-column justify-content-center align-items-center"
+					>
 						<div>
 							<img src={item.img} alt="" />
 						</div>
