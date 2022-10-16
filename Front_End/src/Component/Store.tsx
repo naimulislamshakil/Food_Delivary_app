@@ -2,10 +2,10 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 const Store = () => {
-	const { store } = useParams();
+	const { location } = useParams();
 	return (
 		<section className="container-fluid">
-			<h2>{store}</h2>
+			<h2>{location}</h2>
 		</section>
 	);
 };
