@@ -15,7 +15,6 @@ const Store = () => {
 	useEffect(() => {
 		dispatch(GetStoreByLocation(location));
 	}, [dispatch, location]);
-
 	return (
 		<section className="container-fluid">
 			<h2 className="store-fw">

@@ -8,7 +8,7 @@ import {
 
 interface DefaultState {
 	loading: boolean;
-	stores?: StoreByLocation;
+	stores?: StoreByLocation | undefined;
 }
 
 const initialState: DefaultState = {

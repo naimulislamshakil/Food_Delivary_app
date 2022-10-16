@@ -6,7 +6,6 @@ interface Props {
 }
 
 const StoreCard = ({ store }: Props) => {
-	console.log(store);
 	return (
 		<section className="container-fluid">
 			<div
