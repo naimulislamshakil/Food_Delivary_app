@@ -16,7 +16,8 @@ app.use(express.json());
 // Add Database
 mongoose
 	.connect(process.env.DB)
-	.then(() => console.log('Database connected successfully.'.red.bold));
+	.then(() => console.log('Database connected successfully.'.red.bold))
+	.catch((err) => console.log(err));
 
 // CAll Route
 app.use('/api/v1', storeRoute);
