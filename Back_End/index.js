@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 // Import Route
+const storeRoute = require('./Route/v1/store.route');
 
 // Add Meddilware
 app.use(cors());
