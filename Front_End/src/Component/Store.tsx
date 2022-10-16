@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { GetStoreByLocation } from '../Redux/Action/Action/GetByLocation';
 import { RootStore } from '../Redux/Store';
 import '../scss/App/App.css';
+import StoreCard from './StoreCard';
 
 const Store = () => {
 	const { location } = useParams();
@@ -28,8 +29,12 @@ const Store = () => {
 			<div className="row">
 				<h3>Popular restaurants</h3>
 				{storeByLocation?.status === 'success' ? (
-				storeByLocation.result.result.map(store=>)
-				):""}
+					storeByLocation?.result?.result?.map((store) => (
+						<StoreCard key={store._id} store={store}></StoreCard>
+					))
+				) : (
+					<h2>No Restaurant Found!</h2>
+				)}
 			</div>
 		</section>
 	);

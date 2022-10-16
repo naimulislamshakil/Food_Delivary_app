@@ -21,6 +21,16 @@ export type StoreByLocation = {
 	};
 };
 
+export type PerStore = {
+	_id: string;
+	name: string;
+	location: string;
+	tag: string[];
+	category: string;
+	imgUrl: string;
+	status: string;
+};
+
 export interface storeLoading {
 	type: typeof STORE_LOADING;
 }
