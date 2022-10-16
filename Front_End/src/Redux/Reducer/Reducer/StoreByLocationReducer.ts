@@ -8,7 +8,7 @@ import {
 
 interface DefaultState {
 	loading: boolean;
-	storeByLocation?: StoreByLocation;
+	stores?: StoreByLocation;
 }
 
 const initialState: DefaultState = {
@@ -32,7 +32,7 @@ const StoreByLocations = (
 		case STORE_SUCCESS:
 			return {
 				loading: false,
-				storeByLocation: action.payload,
+				stores: action.payload,
 			};
 		default:
 			return state;

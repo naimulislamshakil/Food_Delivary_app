@@ -112,4 +112,15 @@ p {
   font-weight: 300;
 }
 
+.inner {
+  overflow: hidden;
+}
+.inner .store-img {
+  cursor: pointer;
+  transition: all 1.5s ease;
+}
+.inner .store-img:hover {
+  transform: scale(1.2);
+}
+
 /*# sourceMappingURL=App.css.map *//*# sourceMappingURL=App.css.map */

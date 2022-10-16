@@ -5,7 +5,7 @@ export const STORE_SUCCESS = 'STORE_SUCCESS';
 export type StoreByLocation = {
 	status: string;
 	message: string;
-	result: {
+	data: {
 		result: [
 			{
 				_id: string;

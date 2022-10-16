@@ -113,4 +113,16 @@ p {
 	font-weight: 300;
 }
 
+// store card
+.inner {
+	overflow: hidden;
+	.store-img {
+		cursor: pointer;
+		transition: all 1.5s ease;
+		&:hover {
+			transform: scale(1.2);
+		}
+	}
+}
+
 /*# sourceMappingURL=App.css.map */

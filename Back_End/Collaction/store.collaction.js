@@ -19,7 +19,7 @@ exports.getStoreByLocationCollaction = async (req, res) => {
 		res.status(200).json({
 			status: 'Success',
 			message: 'Store Get Successfully.',
-			result,
+			data: result,
 		});
 	} catch (error) {
 		res.status(500).json({
@@ -50,7 +50,7 @@ exports.getStoreCollaction = async (req, res) => {
 		res.status(200).json({
 			status: 'Success',
 			message: 'Store Get Successfully.',
-			result,
+			data: result,
 		});
 	} catch (error) {
 		res.status(500).json({

@@ -10,9 +10,7 @@ const Store = () => {
 	const { location } = useParams();
 
 	const dispatch = useDispatch();
-	const { storeByLocation } = useSelector(
-		(state: RootStore) => state.storeByLocatins
-	);
+	const { stores } = useSelector((state: RootStore) => state.storeByLocatins);
 
 	useEffect(() => {
 		dispatch(GetStoreByLocation(location));
@@ -27,13 +25,13 @@ const Store = () => {
 			</h2>
 
 			<div className="row">
-				<h3>Popular restaurants</h3>
-				{storeByLocation?.status === 'success' ? (
-					storeByLocation?.result?.result?.map((store) => (
+				<h3 className="mt-5">Popular restaurants</h3>
+				{stores?.status === 'Success' ? (
+					stores?.data.result.map((store) => (
 						<StoreCard key={store._id} store={store}></StoreCard>
 					))
 				) : (
-					<h2>No Restaurant Found!</h2>
+					<h2>No Restaurant Now.</h2>
 				)}
 			</div>
 		</section>
