@@ -80,7 +80,7 @@ const Location = () => {
 	const navigate = useNavigate();
 
 	const getStore = (location: string) => {
-		navigate(`/store/${location}`);
+		navigate(`/stores/${location}`);
 	};
 	return (
 		<section className="container-fluid">

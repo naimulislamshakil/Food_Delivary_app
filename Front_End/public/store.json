@@ -1,0 +1,34 @@
+[
+	{
+		"name": "Pizza Hut",
+		"location": "Dhaka",
+		"place": "Bannni",
+		"tag": ["Rice", "Fish", "Vagitable"],
+		"category": "Rich",
+		"imgUrl": "https://www.pizzahutbd.com/attached_images/deals/92/EBOGO%20OLO%20Banner.jpg"
+	},
+	{
+		"name": "Pizza Inn",
+		"location": "Dhaka",
+		"place": "Uttara",
+		"tag": ["Rice", "Fish", "Vagitable"],
+		"category": "Rich",
+		"imgUrl": "https://mma.prnewswire.com/media/1503552/PizzaInn_Logo.jpg?p=facebook"
+	},
+	{
+		"name": "Pizza King",
+		"location": "Dhaka",
+		"place": "Dhanmondi",
+		"tag": ["Rice", "Fish", "Vagitable"],
+		"category": "Rich",
+		"imgUrl": "https://i.ibb.co/f0dFvL0/download-1.jpg"
+	},
+	{
+		"name": "Chillox",
+		"location": "Dhaka",
+		"place": "Mirpure-10 Block",
+		"tag": ["Rice", "Fish", "Vagitable"],
+		"category": "Rich",
+		"imgUrl": "https://i.ibb.co/B3ywxCS/download.jpg"
+	}
+]

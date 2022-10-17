@@ -31,6 +31,10 @@ const storeSchma = mongoose.Schema(
 				message: 'Location Is not correct.',
 			},
 		},
+		place: {
+			type: String,
+			required: [true, 'This field is require.'],
+		},
 		tag: [String],
 		category: {
 			type: String,
