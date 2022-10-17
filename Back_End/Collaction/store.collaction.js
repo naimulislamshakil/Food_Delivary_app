@@ -2,7 +2,7 @@ const storeService = require('../Service/store.service');
 
 exports.getStoreByLocationCollaction = async (req, res) => {
 	try {
-		const { location, page = 0, limit = 10 } = req.query;
+		const { location, page, limit = 10 } = req.query;
 		const query = {};
 
 		if (location) {

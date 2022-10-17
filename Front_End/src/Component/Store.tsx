@@ -14,8 +14,8 @@ const Store = () => {
 	const { stores } = useSelector((state: RootStore) => state.storeByLocatins);
 
 	useEffect(() => {
-		dispatch(GetStoreByLocation(location));
-	}, [dispatch, location]);
+		dispatch(GetStoreByLocation(location, page));
+	}, [dispatch, location, page]);
 
 	const array = [...Array(stores?.data.paiganation).keys()];
 

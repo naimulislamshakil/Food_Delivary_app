@@ -9,7 +9,6 @@ exports.getStoreByLocationService = async (query) => {
 		.sort('-name');
 	const count = await Store.Store.find({}).count();
 	const paiganation = Math.ceil(count / limit);
-
 	return { result, paiganation };
 };
 

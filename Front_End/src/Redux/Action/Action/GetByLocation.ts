@@ -8,7 +8,7 @@ import {
 } from '../ActionType/GetByLocation';
 
 export const GetStoreByLocation =
-	(location: string | undefined) =>
+	(location: string | undefined, page: number = 0) =>
 	async (dispatch: Dispatch<StoreDispatchType>) => {
 		try {
 			dispatch({
@@ -16,7 +16,7 @@ export const GetStoreByLocation =
 			});
 
 			const res = await axios.get(
-				`http://localhost:5000/api/v1/storebylocation?location=${location}`
+				`http://localhost:5000/api/v1/storebylocation?location=${location}&page=${page}`
 			);
 
 			dispatch({
