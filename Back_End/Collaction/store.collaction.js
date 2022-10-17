@@ -2,15 +2,15 @@ const storeService = require('../Service/store.service');
 
 exports.getStoreByLocationCollaction = async (req, res) => {
 	try {
-		const { location, page = 1, limit = 10 } = req.query;
+		const { location, page = 0, limit = 10 } = req.query;
 		const query = {};
 
 		if (location) {
 			query.location = location;
 		}
 
-		if (page && limit) {
-			const skip = (page - 1) * parseInt(limit);
+		if (page || limit) {
+			const skip = parseInt(page) * parseInt(limit);
 			query.skip = skip;
 			query.limit = limit;
 		}

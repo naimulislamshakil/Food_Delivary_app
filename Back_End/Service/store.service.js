@@ -2,6 +2,7 @@ const Store = require('../Model/store.model');
 
 exports.getStoreByLocationService = async (query) => {
 	const { location, skip, limit } = query;
+
 	const result = await Store.Store.find({ location: location })
 		.skip(skip)
 		.limit(limit)

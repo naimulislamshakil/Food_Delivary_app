@@ -123,4 +123,9 @@ p {
   transform: scale(1.2);
 }
 
+.pagination .selected {
+  background-color: orange !important;
+  color: white !important;
+}
+
 /*# sourceMappingURL=App.css.map *//*# sourceMappingURL=App.css.map */

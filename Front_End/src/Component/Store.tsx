@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { GetStoreByLocation } from '../Redux/Action/Action/GetByLocation';
@@ -8,6 +8,7 @@ import StoreCard from './StoreCard';
 
 const Store = () => {
 	const { location } = useParams();
+	const [page, setPage] = useState(0);
 
 	const dispatch = useDispatch();
 	const { stores } = useSelector((state: RootStore) => state.storeByLocatins);
@@ -15,6 +16,9 @@ const Store = () => {
 	useEffect(() => {
 		dispatch(GetStoreByLocation(location));
 	}, [dispatch, location]);
+
+	const array = [...Array(stores?.data.paiganation).keys()];
+
 	return (
 		<section className="container-fluid">
 			<h2 className="store-fw">
@@ -32,6 +36,22 @@ const Store = () => {
 				) : (
 					<h2>No Restaurant Now.</h2>
 				)}
+			</div>
+
+			<div className="row">
+				{stores?.data.paiganation === 1
+					? ''
+					: array.map((number, index) => (
+							<div className="pagination">
+								<button
+									key={index}
+									onClick={() => setPage(number)}
+									className={page === number ? 'selected' : ''}
+								>
+									{number + 1}
+								</button>
+							</div>
+					  ))}
 			</div>
 		</section>
 	);
