@@ -12,6 +12,7 @@ export type StoreByLocation = {
 				name: string;
 				location: string;
 				tag: string[];
+				place: string;
 				category: string;
 				imgUrl: string;
 				status: string;
@@ -27,6 +28,7 @@ export type PerStore = {
 	location: string;
 	tag: string[];
 	category: string;
+	place: string;
 	imgUrl: string;
 	status: string;
 };
