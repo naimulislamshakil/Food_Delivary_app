@@ -5,9 +5,7 @@ router
 	.route('/storebylocation')
 	.get(storeCollaction.getStoreByLocationCollaction);
 
-router
-	.route('/store')
-	.post(storeCollaction.createStoreCollaction)
-	.get(storeCollaction.getStoreCollaction);
+router.route('/store').post(storeCollaction.createStoreCollaction);
+router.route('/store/:id').get(storeCollaction.getSingleStoreByIdCollaction);
 
 module.exports = router;

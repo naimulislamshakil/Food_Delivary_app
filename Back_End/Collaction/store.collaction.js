@@ -44,12 +44,13 @@ exports.createStoreCollaction = async (req, res) => {
 	}
 };
 
-exports.getStoreCollaction = async (req, res) => {
+exports.getSingleStoreByIdCollaction = async (req, res) => {
 	try {
-		const result = await storeService.getStoreService();
+		const { id } = req.params;
+		const result = await storeService.getSingleStoreByIdService(id);
 		res.status(200).json({
 			status: 'Success',
-			message: 'Store Get Successfully.',
+			message: 'Get store successfully.',
 			data: result,
 		});
 	} catch (error) {
