@@ -5,6 +5,8 @@ import { GetSingleStoreAction } from '../Redux/Action/Action/GetByIdAction';
 import { RootStore } from '../Redux/Store';
 
 const StoreDetils = () => {
+	const current = new Date();
+
 	const { id } = useParams();
 
 	const dispatch = useDispatch();
@@ -13,8 +15,6 @@ const StoreDetils = () => {
 	useEffect(() => {
 		dispatch(GetSingleStoreAction(id));
 	}, [dispatch, id]);
-
-	console.log(store);
 
 	return (
 		<section className="container-fluid">
@@ -30,6 +30,16 @@ const StoreDetils = () => {
 						<span className="bg-danger text-white p-2 rounded-pill ms-3">
 							{store?.data.place}
 						</span>
+						{current.toLocaleTimeString() > '8:00:00' &&
+						current.toLocaleTimeString() < '16:00:00' ? (
+							<span className="bg-success text-white p-2 rounded-pill ms-3">
+								Open
+							</span>
+						) : (
+							<span className="bg-warning text-white p-2 rounded-pill ms-3">
+								Close
+							</span>
+						)}
 						<div className="mt-2 ms-3">
 							<span className="text-danger">$$$</span>
 							{store?.data.tag.map((tag) => (
