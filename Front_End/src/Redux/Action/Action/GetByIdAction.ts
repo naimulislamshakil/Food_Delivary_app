@@ -1,26 +1,29 @@
 import axios from 'axios';
 import { Dispatch } from 'redux';
 import {
-	StorePerDispatchType,
-	STORE_PER_FAIL,
-	STORE_PER_LOADING,
-	STORE_PER_SUCCESS,
+	PerStoreDispatchType,
+	PER_STORE_FAIL,
+	PER_STORE_LOADING,
+	PER_STORE_SUCCESS,
 } from '../ActionType/GetByIdActionType';
 
-export const GetStoreById =
+export const GetSingleStoreAction =
 	(id: string | undefined) =>
-	async (dispatch: Dispatch<StorePerDispatchType>) => {
+	async (dispatch: Dispatch<PerStoreDispatchType>) => {
 		try {
-			dispatch({ type: STORE_PER_LOADING });
+			dispatch({
+				type: PER_STORE_LOADING,
+			});
 
 			const res = await axios.get(`http://localhost:5000/api/v1/store/${id}`);
+
 			dispatch({
-				type: STORE_PER_SUCCESS,
+				type: PER_STORE_SUCCESS,
 				payload: res.data,
 			});
 		} catch (error) {
 			dispatch({
-				type: STORE_PER_FAIL,
+				type: PER_STORE_FAIL,
 			});
 		}
 	};

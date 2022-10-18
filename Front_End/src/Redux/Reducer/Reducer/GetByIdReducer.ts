@@ -1,42 +1,42 @@
 import {
-	StorePerDispatchType,
-	STORE_PER_FAIL,
-	STORE_PER_LOADING,
-	STORE_PER_SUCCESS,
+	PerStoreDispatchType,
+	PER_STORE_FAIL,
+	PER_STORE_LOADING,
+	PER_STORE_SUCCESS,
+	SingleStore,
 } from '../../Action/ActionType/GetByIdActionType';
-import { PerStore } from '../../Action/ActionType/GetByLocation';
 
 interface DefaultState {
 	loading: boolean;
-	store?: PerStore | undefined;
+	store?: SingleStore;
 }
 
 const initialState: DefaultState = {
 	loading: false,
 };
 
-const StoreById = (
+const GetSingleStore = (
 	state: DefaultState = initialState,
-	action: StorePerDispatchType
+	action: PerStoreDispatchType
 ): DefaultState => {
 	switch (action.type) {
-		case STORE_PER_LOADING:
+		case PER_STORE_LOADING:
 			return {
 				loading: true,
 			};
-
-		case STORE_PER_FAIL:
+		case PER_STORE_FAIL:
 			return {
 				loading: false,
 			};
-		case STORE_PER_SUCCESS:
+		case PER_STORE_SUCCESS:
 			return {
 				loading: false,
 				store: action.payload,
 			};
+
 		default:
 			return state;
 	}
 };
 
-export default StoreById;
+export default GetSingleStore;
