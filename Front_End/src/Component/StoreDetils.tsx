@@ -19,8 +19,8 @@ const StoreDetils = () => {
 
 	return (
 		<section className="container-fluid">
-			<div className="row">
-				<div className="col-12 p-3">
+			<div className="p-3">
+				<div>
 					<img
 						className="w-100 img-fluid h-25"
 						src={store?.data.imgUrl}
@@ -61,43 +61,43 @@ const StoreDetils = () => {
 						<nav>
 							<ul className="nav-navbar">
 								<li>
-									<a href="">Rich</a>
+									<a href="#rich">Rich</a>
 								</li>
 								<li>
-									<a href="">Fish</a>
+									<a href="#fish">Fish</a>
 								</li>
 								<li>
-									<a href="">Vagetable</a>
+									<a href="#vagetable">Vagetable</a>
 								</li>
 								<li>
-									<a href="">Biryani</a>
+									<a href="#biryani">Biryani</a>
 								</li>
 								<li>
-									<a href="">Chicken</a>
+									<a href="#chicken">Chicken</a>
 								</li>
 								<li>
-									<a href="">Soup</a>
+									<a href="#soup">Soup</a>
 								</li>
 							</ul>
 						</nav>
 					</div>
-					<div className="bg-white p-3 shadow-lg mt-3">
+					<div className="bg-white p-3 shadow-lg mt-3" id="rich">
 						<h2>Rich</h2>
 					</div>
-					<div className="bg-white p-3 shadow-lg mt-3">
-						<h2>Rich</h2>
+					<div className="bg-white p-3 shadow-lg mt-3" id="fish">
+						<h2>Fish</h2>
 					</div>
-					<div className="bg-white p-3 shadow-lg mt-3">
-						<h2>Rich</h2>
+					<div className="bg-white p-3 shadow-lg mt-3" id="vagetable">
+						<h2>Vagetable</h2>
 					</div>
-					<div className="bg-white p-3 shadow-lg mt-3">
-						<h2>Rich</h2>
+					<div className="bg-white p-3 shadow-lg mt-3" id="biryani">
+						<h2>Biryani</h2>
 					</div>
-					<div className="bg-white p-3 shadow-lg mt-3">
-						<h2>Rich</h2>
+					<div className="bg-white p-3 shadow-lg mt-3" id="chicken">
+						<h2>Chicken</h2>
 					</div>
-					<div className="bg-white p-3 shadow-lg mt-3">
-						<h2>Rich</h2>
+					<div className="bg-white p-3 shadow-lg mt-3" id="soup">
+						<h2>Soup</h2>
 					</div>
 				</div>
 			</div>
