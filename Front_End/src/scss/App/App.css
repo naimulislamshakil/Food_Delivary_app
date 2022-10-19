@@ -135,8 +135,14 @@ p {
   margin-top: 5px;
 }
 
-.nav-li li {
+.nav-navbar {
+  list-style: none;
   display: flex;
+}
+.nav-navbar li a {
+  text-decoration: none;
+  padding: 10px;
+  color: #000;
 }
 
 /*# sourceMappingURL=App.css.map *//*# sourceMappingURL=App.css.map */

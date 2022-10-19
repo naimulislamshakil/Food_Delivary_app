@@ -31,7 +31,7 @@ const StoreDetils = () => {
 						<span className="bg-danger text-white p-2 rounded-pill">
 							{store?.data.place}
 						</span>
-						{current.toLocaleTimeString() > '8:00:00' &&
+						{current.toLocaleTimeString() > '8:00:00' ||
 						current.toLocaleTimeString() < '16:00:00' ? (
 							<span className="bg-success text-white p-2 rounded-pill ms-2">
 								Open
@@ -59,14 +59,26 @@ const StoreDetils = () => {
 					</div>
 					<div className="bg-white p-3 shadow-lg mt-3">
 						<nav>
-							<ul className="">
+							<ul className="nav-navbar">
 								{/* 'Rich', 'Fish', 'Vagetable', 'Biryani', 'Chicken', 'Soup' */}
-								<li className="">Rich</li>
-								<li className="">Fish</li>
-								<li className="">Vagetable</li>
-								<li className="">Biryani</li>
-								<li className="">Chicken</li>
-								<li className="">Soup</li>
+								<li>
+									<a href="">Rich</a>
+								</li>
+								<li>
+									<a href="">Fish</a>
+								</li>
+								<li>
+									<a href="">Vagetable</a>
+								</li>
+								<li>
+									<a href="">Biryani</a>
+								</li>
+								<li>
+									<a href="">Chicken</a>
+								</li>
+								<li>
+									<a href="">Soup</a>
+								</li>
 							</ul>
 						</nav>
 					</div>
