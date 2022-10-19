@@ -139,12 +139,24 @@ p {
 
 .nav-navbar {
 	list-style: none;
-	display: flex;
+	display: flex !important;
 	li {
 		a {
 			text-decoration: none;
 			padding: 10px;
 			color: #000;
+		}
+	}
+}
+
+@media only screen and (max-width: 576px) {
+	.nav-navbar {
+		display: block !important;
+		li {
+			a {
+				margin-left: auto;
+				margin-right: auto;
+			}
 		}
 	}
 }

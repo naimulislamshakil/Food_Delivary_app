@@ -137,7 +137,7 @@ p {
 
 .nav-navbar {
   list-style: none;
-  display: flex;
+  display: flex !important;
 }
 .nav-navbar li a {
   text-decoration: none;
@@ -145,4 +145,13 @@ p {
   color: #000;
 }
 
+@media only screen and (max-width: 576px) {
+  .nav-navbar {
+    display: block !important;
+  }
+  .nav-navbar li a {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 /*# sourceMappingURL=App.css.map *//*# sourceMappingURL=App.css.map */
