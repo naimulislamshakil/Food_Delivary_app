@@ -77,13 +77,9 @@ const productSchma = mongoose.Schema(
 			default: 'In-Stock',
 		},
 		store: {
-			name: {
-				type: String,
-				required: [true, 'This field is require.'],
-			},
 			id: {
 				type: mongoose.Types.ObjectId,
-				ref: Store,
+				ref: 'Store',
 				required: true,
 			},
 		},
@@ -92,3 +88,6 @@ const productSchma = mongoose.Schema(
 		timestamps: true,
 	}
 );
+
+const Product = mongoose.model('Product', productSchma);
+module.exports = Product;
