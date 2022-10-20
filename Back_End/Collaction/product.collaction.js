@@ -14,3 +14,19 @@ exports.postAProductCollaction = async (req, res) => {
 		});
 	}
 };
+
+exports.getAllProductCollaction = async (req, res) => {
+	try {
+		const result = await productService.getAllProductService();
+		res.status(200).json({
+			status: 'Success',
+			message: 'Get All Product Successfully.',
+			result,
+		});
+	} catch (error) {
+		res.status(500).json({
+			status: 'Faild',
+			error: error.message,
+		});
+	}
+};
