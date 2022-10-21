@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+
+	const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		console.log(email, password);
+	};
 	return (
-		<section className="container-fluid">
+		<section className="container-fluid mt-4">
 			<form onSubmit={onSubmit} className="w-75 mx-auto card p-5">
 				<h2 className="text-center">Log In</h2>
 				<div className="mb-3">
@@ -44,7 +51,7 @@ const Login = () => {
 					type="submit"
 					value="Login"
 					className="btn w-lg-25 w-100 fw-bold mx-auto"
-					style={{ backgroundColor: 'turquoise', color: 'white' }}
+					style={{ backgroundColor: '#f5424b', color: 'white' }}
 				/>
 			</form>
 		</section>
