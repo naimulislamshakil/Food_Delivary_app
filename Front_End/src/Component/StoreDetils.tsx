@@ -140,6 +140,11 @@ const StoreDetils = () => {
 					</div>
 					<div className="bg-white p-3 shadow-lg mt-3" id="chicken">
 						<h2>Chicken</h2>
+						<div className="row">
+							{chickens?.map((chicken) => (
+								<ProductCard key={chicken._id} product={chicken}></ProductCard>
+							))}
+						</div>
 					</div>
 					<div className="bg-white p-3 shadow-lg mt-3" id="soup">
 						<h2>Soup</h2>
