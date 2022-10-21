@@ -37,8 +37,6 @@ const StoreDetils = () => {
 		(product) => product.category === 'Soup'
 	);
 
-	console.log(rices);
-
 	return (
 		<section className="container-fluid">
 			<div className="p-3">
