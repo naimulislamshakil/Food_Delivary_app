@@ -1,5 +1,6 @@
 import React from 'react';
 import { SingleProduct } from '../Redux/Action/ActionType/GetByIdActionType';
+import '../scss/App/App.css';
 
 interface Props {
 	product: SingleProduct;
@@ -11,7 +12,9 @@ const ProductCard = ({ product }: Props) => {
 			className="col-12 col-lg-3 col-md-6 mx-auto card shadow mt-3"
 			style={{ width: '18rem' }}
 		>
-			<img className="card-img-top" src={product.img} alt="" />
+			<div className="inner">
+				<img className="card-img-top store-img" src={product.img} alt="" />
+			</div>
 			<div className="card-body">
 				<h5 className="card-title">{product.name}</h5>
 				{product.status === 'In-Stock' ? (
