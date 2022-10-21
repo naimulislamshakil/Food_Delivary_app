@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const [rePassword, setRePassword] = useState('');
+
+	const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		if (password === rePassword) {
+			console.log(email, password);
+		}
+	};
 	return (
 		<section className="container-fluid">
-			<form onSubmit={onsubmit} className="w-75 mx-auto card p-5">
+			<form onSubmit={onSubmit} className="w-75 mx-auto card p-5">
 				<h2 className="text-center">Create A User</h2>
 
 				<div className="mb-3">
@@ -59,7 +69,7 @@ const Register = () => {
 					type="submit"
 					value="Register"
 					className="btn w-lg-25 w-100 fw-bold mx-auto"
-					style={{ backgroundColor: 'turquoise', color: 'white' }}
+					style={{ backgroundColor: '#f5424b', color: 'white' }}
 				/>
 			</form>
 		</section>
