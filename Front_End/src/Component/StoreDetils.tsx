@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { GetSingleStoreAction } from '../Redux/Action/Action/GetByIdAction';
 import { RootStore } from '../Redux/Store';
 import '../scss/App/App.css';
+import ProductCard from './ProductCard';
 
 const StoreDetils = () => {
 	const current = new Date();
@@ -17,7 +18,26 @@ const StoreDetils = () => {
 		dispatch(GetSingleStoreAction(id));
 	}, [dispatch, id]);
 
-	console.log(store);
+	const rices = store?.data.product.filter(
+		(product) => product.category === 'Rich'
+	);
+	const fishs = store?.data.product.filter(
+		(product) => product.category === 'Fish'
+	);
+	const vagetables = store?.data.product.filter(
+		(product) => product.category === 'Vagetable'
+	);
+	const biryanis = store?.data.product.filter(
+		(product) => product.category === 'Biryani'
+	);
+	const chickens = store?.data.product.filter(
+		(product) => product.category === 'Chicken'
+	);
+	const soups = store?.data.product.filter(
+		(product) => product.category === 'Soup'
+	);
+
+	console.log(rices);
 
 	return (
 		<section className="container-fluid">
@@ -63,7 +83,7 @@ const StoreDetils = () => {
 						<nav>
 							<ul className="nav-navbar">
 								<li>
-									<a href="#rich">Rich</a>
+									<a href="#rich">Rice</a>
 								</li>
 								<li>
 									<a href="#fish">Fish</a>
@@ -84,7 +104,12 @@ const StoreDetils = () => {
 						</nav>
 					</div>
 					<div className="bg-white p-3 shadow-lg mt-3" id="rich">
-						<h2>Rich</h2>
+						<h2>Rice</h2>
+						<div className="row">
+							{rices?.map((rice) => (
+								<ProductCard key={rice._id} product={rice}></ProductCard>
+							))}
+						</div>
 					</div>
 					<div className="bg-white p-3 shadow-lg mt-3" id="fish">
 						<h2>Fish</h2>
