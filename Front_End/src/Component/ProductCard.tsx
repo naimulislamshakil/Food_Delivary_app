@@ -9,6 +9,10 @@ interface Props {
 
 const ProductCard = ({ product }: Props) => {
 	const navigation = useNavigate();
+
+	const buyNow = (id: string) => {
+		navigation(`/shopping/${id}`);
+	};
 	return (
 		<div
 			className="col-12 col-lg-3 col-md-6 mx-auto card shadow mt-3"
@@ -38,7 +42,12 @@ const ProductCard = ({ product }: Props) => {
 				<p className="card-text">{product.description}</p>
 			</div>
 			<div className="card-footer justify-content-between d-flex">
-				<button className="btn btn-outline-success">Buy Now</button>
+				<button
+					className="btn btn-outline-success"
+					onClick={() => buyNow(product._id)}
+				>
+					Buy Now
+				</button>
 				<button className="btn btn-outline-danger">Add To Cart</button>
 			</div>
 		</div>
