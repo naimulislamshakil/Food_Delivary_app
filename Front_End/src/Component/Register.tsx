@@ -58,11 +58,11 @@ const Register = () => {
 					/>
 				</div>
 				<div className="mb-3 d-lg-flex justify-content-lg-center d-block">
-					<h6>You Are Alrady A User!</h6>
+					<p>You Are Alrady A User!</p>
 					<Link to="/login" className="nav-link">
-						<h6 className="ms-2 text-decoration-underline text-primary">
+						<p className="ms-2 text-decoration-underline text-primary">
 							Please LogIn.
-						</h6>
+						</p>
 					</Link>
 				</div>
 				<input
