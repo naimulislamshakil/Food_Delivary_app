@@ -32,8 +32,9 @@ const ProductCard = ({ product }: Props) => {
 				</div>
 				<p className="card-text">{product.description}</p>
 			</div>
-			<div className="card-footer">
-				<small className="text-muted">Last updated 3 mins ago</small>
+			<div className="card-footer justify-content-between d-flex">
+				<button className="btn btn-outline-success">Buy Now</button>
+				<button className="btn btn-outline-danger">Add To Cart</button>
 			</div>
 		</div>
 	);
