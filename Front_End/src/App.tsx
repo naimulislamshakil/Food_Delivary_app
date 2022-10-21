@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import NotFound from './Component/404';
 import AboutUs from './Component/AboutUs';
+import BuyNow from './Component/BuyNow';
 import ContactUs from './Component/ContactUs';
 import Fooder from './Component/Fooder/Fooder';
 import Home from './Component/Home/Home';
@@ -19,6 +20,7 @@ function App() {
 				<Route path="/all_foods" element={<Location />}></Route>
 				<Route path="/stores/:location" element={<Store />}></Route>
 				<Route path="/restaurants/:id" element={<StoreDetils />}></Route>
+				<Route path="/shopping/:id" element={<BuyNow />}></Route>
 				<Route path="/about_us" element={<AboutUs />}></Route>
 				<Route path="/contact_us" element={<ContactUs />}></Route>
 				<Route path="*" element={<NotFound />}></Route>

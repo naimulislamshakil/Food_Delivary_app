@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { SingleProduct } from '../Redux/Action/ActionType/GetByIdActionType';
 import '../scss/App/App.css';
 
@@ -7,6 +8,7 @@ interface Props {
 }
 
 const ProductCard = ({ product }: Props) => {
+	const navigation = useNavigate();
 	return (
 		<div
 			className="col-12 col-lg-3 col-md-6 mx-auto card shadow mt-3"
