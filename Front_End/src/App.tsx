@@ -6,7 +6,9 @@ import ContactUs from './Component/ContactUs';
 import Fooder from './Component/Fooder/Fooder';
 import Home from './Component/Home/Home';
 import Location from './Component/Home/Location';
+import Login from './Component/Login';
 import NavBar from './Component/NavBar/NavBar';
+import Register from './Component/Register';
 import Store from './Component/Store';
 import StoreDetils from './Component/StoreDetils';
 import './scss/App/App.css';
@@ -22,6 +24,8 @@ function App() {
 				<Route path="/restaurants/:id" element={<StoreDetils />}></Route>
 				<Route path="/shopping/:id" element={<BuyNow />}></Route>
 				<Route path="/about_us" element={<AboutUs />}></Route>
+				<Route path="/login" element={<Login />}></Route>
+				<Route path="/register" element={<Register />}></Route>
 				<Route path="/contact_us" element={<ContactUs />}></Route>
 				<Route path="*" element={<NotFound />}></Route>
 			</Routes>
