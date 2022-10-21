@@ -17,6 +17,8 @@ const StoreDetils = () => {
 		dispatch(GetSingleStoreAction(id));
 	}, [dispatch, id]);
 
+	console.log(store);
+
 	return (
 		<section className="container-fluid">
 			<div className="p-3">

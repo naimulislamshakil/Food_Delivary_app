@@ -2,6 +2,21 @@ export const PER_STORE_FAIL = 'PER_STORE_FAIL';
 export const PER_STORE_LOADING = 'PER_STORE_LOADING';
 export const PER_STORE_SUCCESS = 'PER_STORE_SUCCESS';
 
+export type SingleProduct = {
+	store: {
+		id: string;
+	};
+	_id: string;
+	name: string;
+	quantity: number;
+	unit: string;
+	description: string;
+	price: number;
+	img: string;
+	category: string;
+	status: string;
+};
+
 export type SingleStore = {
 	status: string;
 	message: string;
@@ -14,6 +29,7 @@ export type SingleStore = {
 		place: string;
 		imgUrl: string;
 		status: string;
+		product: SingleProduct[];
 	};
 };
 
