@@ -15,3 +15,20 @@ exports.createAUserCollaction = async (req, res) => {
 		});
 	}
 };
+
+exports.loginUserCollaction = async (req, res) => {
+	try {
+		const { email, password } = req.body;
+
+		res.status(200).json({
+			status: 'Success',
+			message: 'User create Successfully.',
+			result,
+		});
+	} catch (error) {
+		res.status(500).json({
+			status: 'Faild',
+			error: error.message,
+		});
+	}
+};
