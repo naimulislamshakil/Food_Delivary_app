@@ -5,11 +5,13 @@ const Register = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [rePassword, setRePassword] = useState('');
+	const [firstName, setFirstName] = useState('');
+	const [lasttName, setLastName] = useState('');
 
 	const onSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		if (password === rePassword) {
-			console.log(email, password);
+			console.log(email, password, firstName, lasttName);
 		}
 	};
 	return (
@@ -33,6 +35,34 @@ const Register = () => {
 						We'll never share your email with anyone else.
 					</div>
 				</div>
+
+				<div className="mb-3">
+					<label htmlFor="exampleInputEmail1" className="form-label">
+						First Name
+					</label>
+					<input
+						onBlur={(e) => setFirstName(e.target.value)}
+						type="text"
+						className="form-control"
+						id="exampleInputEmail1"
+						aria-describedby="emailHelp"
+						required
+					/>
+				</div>
+				<div className="mb-3">
+					<label htmlFor="exampleInputEmail1" className="form-label">
+						Last Name
+					</label>
+					<input
+						onBlur={(e) => setLastName(e.target.value)}
+						type="text"
+						className="form-control"
+						id="exampleInputEmail1"
+						aria-describedby="emailHelp"
+						required
+					/>
+				</div>
+
 				<div className="mb-3">
 					<label htmlFor="exampleInputPassword1" className="form-label">
 						Password
@@ -45,6 +75,7 @@ const Register = () => {
 						required
 					/>
 				</div>
+
 				<div className="mb-3">
 					<label htmlFor="exampleInputPassword1" className="form-label">
 						Retype Password
