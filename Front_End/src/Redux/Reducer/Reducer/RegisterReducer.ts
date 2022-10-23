@@ -1,4 +1,5 @@
 import {
+	RegisterUserSussess,
 	RegisterDispatchType,
 	REGISTER_FAIL,
 	REGISTER_LOADING,
@@ -7,7 +8,7 @@ import {
 
 interface DefaultState {
 	loading: boolean;
-	message?: string;
+	message?: RegisterUserSussess;
 }
 
 const initialState: DefaultState = {

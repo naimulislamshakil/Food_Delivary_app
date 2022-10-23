@@ -1,10 +1,11 @@
 import React, { FormEvent, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { RegisterAction } from '../Redux/Action/Action/RegisterAction';
 import { RootStore } from '../Redux/Store';
 
 const Register = () => {
+	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const user = useSelector((state: RootStore) => state.registerUser);
 
@@ -20,11 +21,12 @@ const Register = () => {
 			const user = { email, password, firstName, lastName };
 
 			dispatch(RegisterAction(user));
-			if(user)
 		}
 	};
-
-	
+	if (user.message?.status === 'Success') {
+		navigate('/');
+	}
+	console.log(user);
 	return (
 		<section className="container-fluid">
 			<form onSubmit={onSubmit} className="w-75 mx-auto card p-5">

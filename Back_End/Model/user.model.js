@@ -58,7 +58,7 @@ const userSchma = mongoose.Schema(
 		},
 		status: {
 			type: String,
-			default: 'Active',
+			default: 'In-Active',
 			enum: ['Active', 'In-Active'],
 		},
 		passwordChangeAt: Date,

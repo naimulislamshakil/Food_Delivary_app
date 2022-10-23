@@ -2,6 +2,11 @@ export const REGISTER_FAIL = 'REGISTER_FAIL';
 export const REGISTER_LOADING = 'REGISTER_LOADING';
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 
+export interface RegisterUserSussess {
+	status?: string;
+	message?: string;
+}
+
 export type RegisterUesr = {
 	email: string;
 	password: string;
@@ -11,7 +16,7 @@ export type RegisterUesr = {
 	img?: string;
 };
 
-interface RegisterLoading {
+export interface RegisterLoading {
 	type: typeof REGISTER_LOADING;
 }
 
@@ -21,7 +26,7 @@ interface RegisterFail {
 
 interface RegisterSuccess {
 	type: typeof REGISTER_SUCCESS;
-	payload: string;
+	payload: RegisterUserSussess;
 }
 
 export type RegisterDispatchType =
