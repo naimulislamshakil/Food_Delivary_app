@@ -6,7 +6,6 @@ exports.createAUserCollaction = async (req, res) => {
 		res.status(200).json({
 			status: 'Success',
 			message: 'User create Successfully.',
-			result,
 		});
 	} catch (error) {
 		res.status(500).json({
