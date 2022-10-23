@@ -7,8 +7,8 @@ export type RegisterUesr = {
 	password: string;
 	firstName: string;
 	lastName: string;
-	contactNumber: string;
-	img: string;
+	contactNumber?: string;
+	img?: string;
 };
 
 interface RegisterLoading {
@@ -21,7 +21,7 @@ interface RegisterFail {
 
 interface RegisterSuccess {
 	type: typeof REGISTER_SUCCESS;
-	payload: RegisterUesr;
+	payload: string;
 }
 
 export type RegisterDispatchType =

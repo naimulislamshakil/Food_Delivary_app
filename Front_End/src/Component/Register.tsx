@@ -1,19 +1,30 @@
 import React, { FormEvent, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { RegisterAction } from '../Redux/Action/Action/RegisterAction';
+import { RootStore } from '../Redux/Store';
 
 const Register = () => {
+	const dispatch = useDispatch();
+	const user = useSelector((state: RootStore) => state.registerUser);
+
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [rePassword, setRePassword] = useState('');
 	const [firstName, setFirstName] = useState('');
-	const [lasttName, setLastName] = useState('');
+	const [lastName, setLastName] = useState('');
 
 	const onSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		if (password === rePassword) {
-			console.log(email, password, firstName, lasttName);
+			const user = { email, password, firstName, lastName };
+
+			dispatch(RegisterAction(user));
+			if(user)
 		}
 	};
+
+	
 	return (
 		<section className="container-fluid">
 			<form onSubmit={onSubmit} className="w-75 mx-auto card p-5">
