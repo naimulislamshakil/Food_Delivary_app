@@ -1,4 +1,5 @@
 const userService = require('../Service/user.service');
+const bcrypt = require('bcrypt');
 
 exports.createAUserCollaction = async (req, res) => {
 	try {
@@ -28,10 +29,18 @@ exports.loginUserCollaction = async (req, res) => {
 			});
 		}
 
+		const isPasswordCorract = bcrypt.compareSync(password, user.password);
+
+		if (isPasswordCorract) {
+			return res.status(403).json({
+				status: 'Fail',
+				message: 'Password is not correct.',
+			});
+		}
+
 		res.status(200).json({
 			status: 'Success',
 			message: 'User create Successfully.',
-			result,
 		});
 	} catch (error) {
 		res.status(500).json({
