@@ -15,15 +15,14 @@ const userSchma = mongoose.Schema(
 			type: String,
 			required: [true, 'This field is require.'],
 			validate: {
-				validator: (value) => {
+				validator: (value) =>
 					validator.isStrongPassword(value, {
 						minLength: 8,
 						minLowercase: 1,
 						minUppercase: 1,
 						minNumbers: 1,
 						minSymbols: 1,
-					});
-				},
+					}),
 				message: 'Password is not enough strong.',
 			},
 		},
