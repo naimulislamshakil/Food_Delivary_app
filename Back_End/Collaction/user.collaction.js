@@ -38,6 +38,13 @@ exports.loginUserCollaction = async (req, res) => {
 			});
 		}
 
+		if (user.status != 'Active') {
+			return res.status(401).json({
+				status: 'Fail',
+				message: 'Your account is not active yet.',
+			});
+		}
+
 		res.status(200).json({
 			status: 'Success',
 			message: 'User create Successfully.',
