@@ -9,6 +9,7 @@ require('dotenv').config();
 // Import Route
 const storeRoute = require('./Route/v1/store.route');
 const productRoute = require('./Route/v1/Product.route');
+const userRoute = require('./Route/v1/user.route');
 
 // Add Meddilware
 app.use(cors());
@@ -23,6 +24,7 @@ mongoose
 // CAll Route
 app.use('/api/v1', storeRoute);
 app.use('/api/v1', productRoute);
+app.use('/api/v1', userRoute);
 
 // Home Route
 app.get('/', (req, res) => {

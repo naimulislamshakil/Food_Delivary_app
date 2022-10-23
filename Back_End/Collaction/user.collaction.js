@@ -2,9 +2,10 @@ const userService = require('../Service/user.service');
 
 exports.createAUserCollaction = async (req, res) => {
 	try {
-		const result = await userService.res.status(200).json({
+		const result = await userService.createAUserService(req.body);
+		res.status(200).json({
 			status: 'Success',
-			message: 'Get All Product Successfully.',
+			message: 'User create Successfully.',
 			result,
 		});
 	} catch (error) {
