@@ -3,7 +3,9 @@ import { Dispatch } from 'redux';
 import {
 	RegisterDispatchType,
 	RegisterUesr,
+	REGISTER_FAIL,
 	REGISTER_LOADING,
+	REGISTER_SUCCESS,
 } from '../ActionType/RegisterActionType';
 
 export const RegisterAction =
@@ -13,6 +15,15 @@ export const RegisterAction =
 				type: REGISTER_LOADING,
 			});
 
-			const res = await axios.post();
-		} catch (error) {}
+			const res = await axios.post('http://localhost:5000/api/v1/user', user);
+
+			dispatch({
+				type: REGISTER_SUCCESS,
+				payload: res.data,
+			});
+		} catch (error) {
+			dispatch({
+				type: REGISTER_FAIL,
+			});
+		}
 	};
