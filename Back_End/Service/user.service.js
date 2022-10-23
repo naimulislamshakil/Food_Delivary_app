@@ -5,7 +5,7 @@ exports.createAUserService = async (user) => {
 	return result;
 };
 
-exports.loginAUserService = async (user) => {
-	const result = await User.create(user);
+exports.loginAUserService = async (email) => {
+	const result = await User.findOne({ email });
 	return result;
 };
