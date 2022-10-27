@@ -20,7 +20,6 @@ exports.createAUserCollaction = async (req, res) => {
 exports.loginUserCollaction = async (req, res) => {
 	try {
 		const { email, password } = req.body;
-		console.log(email, password);
 
 		const user = await userService.loginAUserService(email);
 
@@ -49,11 +48,13 @@ exports.loginUserCollaction = async (req, res) => {
 
 		const token = generateToken(user);
 
+		const { password: pwd, ...other } = user.toObject();
+
 		res.status(200).json({
 			status: 'Success',
 			message: 'Successfully logged in.',
 			data: {
-				user,
+				user: other,
 				token,
 			},
 		});
