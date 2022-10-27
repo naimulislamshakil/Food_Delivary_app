@@ -1,5 +1,6 @@
 const userService = require('../Service/user.service');
 const bcrypt = require('bcrypt');
+const { generateToken } = require('../Utils/jwtToken');
 
 exports.createAUserCollaction = async (req, res) => {
 	try {
@@ -19,6 +20,7 @@ exports.createAUserCollaction = async (req, res) => {
 exports.loginUserCollaction = async (req, res) => {
 	try {
 		const { email, password } = req.body;
+		console.log(email, password);
 
 		const user = await userService.loginAUserService(email);
 
@@ -31,7 +33,7 @@ exports.loginUserCollaction = async (req, res) => {
 
 		const isPasswordCorract = bcrypt.compareSync(password, user.password);
 
-		if (isPasswordCorract) {
+		if (!isPasswordCorract) {
 			return res.status(403).json({
 				status: 'Fail',
 				message: 'Password is not correct.',
@@ -45,9 +47,15 @@ exports.loginUserCollaction = async (req, res) => {
 			});
 		}
 
+		const token = generateToken(user);
+
 		res.status(200).json({
 			status: 'Success',
-			message: 'User create Successfully.',
+			message: 'Successfully logged in.',
+			data: {
+				user,
+				token,
+			},
 		});
 	} catch (error) {
 		res.status(500).json({
