@@ -15,7 +15,7 @@ const Register = () => {
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setLastName] = useState('');
 
-	const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+	const onSubmitLogin = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		if (password === rePassword) {
 			const user = { email, password, firstName, lastName };
@@ -24,12 +24,12 @@ const Register = () => {
 		}
 	};
 	if (user.message?.status === 'Success') {
-		navigate('/');
+		navigate('/login');
 	}
-	console.log(user);
+
 	return (
 		<section className="container-fluid">
-			<form onSubmit={onSubmit} className="w-75 mx-auto card p-5">
+			<form onSubmit={onSubmitLogin} className="w-75 mx-auto card p-5">
 				<h2 className="text-center">Create A User</h2>
 
 				<div className="mb-3">
@@ -112,7 +112,7 @@ const Register = () => {
 				<input
 					type="submit"
 					value="Register"
-					className="btn w-lg-25 w-100 fw-bold mx-auto"
+					className="btn w-lg-25 w-25 fw-bold mx-auto"
 					style={{ backgroundColor: '#f5424b', color: 'white' }}
 				/>
 			</form>

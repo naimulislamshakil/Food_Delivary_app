@@ -23,15 +23,15 @@ const Login = () => {
 			password,
 		};
 		dispatch(LoginAction(users));
-		if (user?.status === 'Success') {
-			navigate(from, { replace: true });
-			window.location.reload();
-		}
-
-		window.localStorage.setItem('token', JSON.stringify(user?.data.token));
-
-		window.localStorage.setItem('user', JSON.stringify(user?.data.user));
 	};
+	window.localStorage.setItem('token', JSON.stringify(user?.data.token));
+
+	window.localStorage.setItem('user', JSON.stringify(user?.data.user));
+	if (user?.status === 'Success') {
+		console.log('hgfhgmbm');
+		navigate(from, { replace: true });
+		window.location.reload();
+	}
 
 	return (
 		<section className="container-fluid mt-4">
@@ -76,7 +76,7 @@ const Login = () => {
 				<input
 					type="submit"
 					value="Login"
-					className="btn w-lg-25 w-100 fw-bold mx-auto"
+					className="btn w-lg-25 w-25 fw-bold mx-auto"
 					style={{ backgroundColor: '#f5424b', color: 'white' }}
 				/>
 			</form>

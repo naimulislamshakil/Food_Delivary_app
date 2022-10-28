@@ -3,6 +3,7 @@ import NotFound from './Component/404';
 import AboutUs from './Component/AboutUs';
 import BuyNow from './Component/BuyNow';
 import ContactUs from './Component/ContactUs';
+import Dashboard from './Component/Dashboard/Dashboard';
 import Fooder from './Component/Fooder/Fooder';
 import Home from './Component/Home/Home';
 import Location from './Component/Home/Location';
@@ -35,6 +36,14 @@ function App() {
 				<Route path="/login" element={<Login />}></Route>
 				<Route path="/register" element={<Register />}></Route>
 				<Route path="/contact_us" element={<ContactUs />}></Route>
+				<Route
+					path="/dashboard"
+					element={
+						<RequireAuth>
+							<Dashboard />
+						</RequireAuth>
+					}
+				></Route>
 				<Route path="*" element={<NotFound />}></Route>
 			</Routes>
 			<Fooder />

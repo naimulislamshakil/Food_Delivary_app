@@ -11,6 +11,12 @@ const NavBar = () => {
 		setUser(user);
 	}, []);
 
+	const logout = () => {
+		localStorage.removeItem('token');
+		localStorage.removeItem('user');
+		window.location.reload();
+	};
+
 	const navbar = (
 		<>
 			<li className="nav-item">
@@ -36,14 +42,18 @@ const NavBar = () => {
 			{user ? (
 				<>
 					<li className="nav-item">
-						<Link className="nav-link" aria-current="page" to="/login">
+						<Link className="nav-link" aria-current="page" to="/dashboard">
 							Dashboard
 						</Link>
 					</li>
 					<li className="nav-item">
-						<Link className="nav-link" aria-current="page" to="/login">
+						<button
+							onClick={() => logout()}
+							className="btn"
+							aria-current="page"
+						>
 							LogOut
-						</Link>
+						</button>
 					</li>
 				</>
 			) : (
