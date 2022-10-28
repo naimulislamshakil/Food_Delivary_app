@@ -65,3 +65,13 @@ exports.loginUserCollaction = async (req, res) => {
 		});
 	}
 };
+
+exports.userPersistence = async (req, res) => {
+	try {
+	} catch (error) {
+		res.status(500).json({
+			status: 'Faild',
+			error: error.message,
+		});
+	}
+};
