@@ -11,6 +11,7 @@ import NavBar from './Component/NavBar/NavBar';
 import Register from './Component/Register';
 import Store from './Component/Store';
 import StoreDetils from './Component/StoreDetils';
+import RequireAuth from './hooks/RequierAuth';
 import './scss/App/App.css';
 
 function App() {
@@ -22,7 +23,14 @@ function App() {
 				<Route path="/all_foods" element={<Location />}></Route>
 				<Route path="/stores/:location" element={<Store />}></Route>
 				<Route path="/restaurants/:id" element={<StoreDetils />}></Route>
-				<Route path="/shopping/:id" element={<BuyNow />}></Route>
+				<Route
+					path="/shopping/:id"
+					element={
+						<RequireAuth>
+							<BuyNow />
+						</RequireAuth>
+					}
+				></Route>
 				<Route path="/about_us" element={<AboutUs />}></Route>
 				<Route path="/login" element={<Login />}></Route>
 				<Route path="/register" element={<Register />}></Route>
