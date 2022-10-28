@@ -23,14 +23,15 @@ const Login = () => {
 			password,
 		};
 		dispatch(LoginAction(users));
-		if (user?.data.token) {
-			window.localStorage.setItem('token', user.data.token);
+		if (user?.status === 'Success') {
+			navigate(from, { replace: true });
 		}
+
+		window.localStorage.setItem('token', JSON.stringify(user?.data.token));
+
+		window.localStorage.setItem('user', JSON.stringify(user?.data.user));
 	};
 
-	if (window.localStorage.getItem('token')) {
-		navigate(from, { replace: true });
-	}
 	return (
 		<section className="container-fluid mt-4">
 			<form onSubmit={onSubmit} className="w-75 mx-auto card p-5">

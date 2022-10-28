@@ -3,6 +3,9 @@ import logo from '../../assets/images/res-logo.png';
 import '../../scss/Navbar/Navbar.css';
 
 const NavBar = () => {
+	const userText = window.localStorage.getItem('user');
+	const user = JSON.parse(userText!);
+
 	const navbar = (
 		<>
 			<li className="nav-item">
@@ -25,11 +28,26 @@ const NavBar = () => {
 					About Us
 				</Link>
 			</li>
-			<li className="nav-item">
-				<Link className="nav-link" aria-current="page" to="/login">
-					LogIn
-				</Link>
-			</li>
+			{user ? (
+				<>
+					<li className="nav-item">
+						<Link className="nav-link" aria-current="page" to="/login">
+							Dashboard
+						</Link>
+					</li>
+					<li className="nav-item">
+						<Link className="nav-link" aria-current="page" to="/login">
+							LogOut
+						</Link>
+					</li>
+				</>
+			) : (
+				<li className="nav-item">
+					<Link className="nav-link" aria-current="page" to="/login">
+						LogIn
+					</Link>
+				</li>
+			)}
 		</>
 	);
 	return (

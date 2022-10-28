@@ -8,7 +8,7 @@ import {
 
 interface DefaultState {
 	loading: boolean;
-	user?: LogingUser;
+	user?: LogingUser | undefined;
 }
 
 const initialState: DefaultState = {
