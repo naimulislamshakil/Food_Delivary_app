@@ -1,14 +1,26 @@
 import React, { FormEvent, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { LoginAction } from '../Redux/Action/Action/LoginAction';
+import { RootStore } from '../Redux/Store';
 
 const Login = () => {
+	const dispatch = useDispatch();
+	const { user } = useSelector((state: RootStore) => state.user);
+
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
 	const onSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		console.log(email, password);
+
+		const user = {
+			email,
+			password,
+		};
+		dispatch(LoginAction(user));
 	};
+	console.log(user);
 	return (
 		<section className="container-fluid mt-4">
 			<form onSubmit={onSubmit} className="w-75 mx-auto card p-5">
