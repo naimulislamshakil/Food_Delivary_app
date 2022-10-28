@@ -25,6 +25,7 @@ const Login = () => {
 		dispatch(LoginAction(users));
 		if (user?.status === 'Success') {
 			navigate(from, { replace: true });
+			window.location.reload();
 		}
 
 		window.localStorage.setItem('token', JSON.stringify(user?.data.token));

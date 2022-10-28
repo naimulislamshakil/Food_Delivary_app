@@ -1,10 +1,15 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/res-logo.png';
 import '../../scss/Navbar/Navbar.css';
 
 const NavBar = () => {
-	const userText = window.localStorage.getItem('user');
-	const user = JSON.parse(userText!);
+	const [user, setUser] = useState({});
+	useEffect(() => {
+		const userText = window.localStorage.getItem('user');
+		const user = JSON.parse(userText!);
+		setUser(user);
+	}, []);
 
 	const navbar = (
 		<>
