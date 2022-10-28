@@ -68,6 +68,9 @@ exports.loginUserCollaction = async (req, res) => {
 
 exports.userPersistence = async (req, res) => {
 	try {
+		res.status(200).json({
+			data: req.user,
+		});
 	} catch (error) {
 		res.status(500).json({
 			status: 'Faild',
