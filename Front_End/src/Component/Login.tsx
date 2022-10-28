@@ -1,6 +1,6 @@
 import React, { FormEvent, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { LoginAction } from '../Redux/Action/Action/LoginAction';
 import { RootStore } from '../Redux/Store';
 
@@ -11,16 +11,26 @@ const Login = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
+	const navigate = useNavigate();
+	const location = useLocation();
+	const from = location.state?.from?.pathname || '/';
+
 	const onSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
-		const user = {
+		const users = {
 			email,
 			password,
 		};
-		dispatch(LoginAction(user));
+		dispatch(LoginAction(users));
+		if (user?.data.token) {
+			window.localStorage.setItem('token', user.data.token);
+		}
 	};
-	console.log(user);
+
+	if (window.localStorage.getItem('token')) {
+		navigate(from, { replace: true });
+	}
 	return (
 		<section className="container-fluid mt-4">
 			<form onSubmit={onSubmit} className="w-75 mx-auto card p-5">
