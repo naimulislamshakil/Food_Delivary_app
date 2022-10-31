@@ -21,6 +21,7 @@ export type Persistence = {
 
 export interface PersistenceFail {
 	type: typeof PERSISTENCE_FAIL;
+	payload: null | any;
 }
 export interface PersistenceLoading {
 	type: typeof PERSISTENCE_LOADING;

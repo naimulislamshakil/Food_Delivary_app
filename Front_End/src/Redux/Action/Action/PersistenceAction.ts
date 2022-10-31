@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { parse } from 'path';
 import { Dispatch } from 'redux';
 import {
 	PersistenceDispatcType,
@@ -19,18 +20,21 @@ export const PersistenceAction =
 				{
 					method: 'GET',
 					headers: {
-						Authorization: `Bearer ${localStorage.getItem('token')}`,
+						Authorization: `Bearer ${JSON.parse(
+							localStorage.getItem('token')!
+						)}`,
 					},
 				}
 			);
-
+			console.log(res.data);
 			dispatch({
 				type: PERSISTENCE_SUCCESS,
 				payload: res.data,
 			});
-		} catch (error) {
+		} catch (error: any) {
 			dispatch({
 				type: PERSISTENCE_FAIL,
+				payload: error.message,
 			});
 		}
 	};

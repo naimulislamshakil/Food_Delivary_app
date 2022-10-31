@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import NotFound from './Component/404';
 import AboutUs from './Component/AboutUs';
@@ -13,9 +15,17 @@ import Register from './Component/Register';
 import Store from './Component/Store';
 import StoreDetils from './Component/StoreDetils';
 import RequireAuth from './hooks/RequierAuth';
+import { PersistenceAction } from './Redux/Action/Action/PersistenceAction';
+import { RootStore } from './Redux/Store';
 import './scss/App/App.css';
 
 function App() {
+	const dispatch = useDispatch();
+	const persistence = useSelector((state: RootStore) => state.persistence);
+	useEffect(() => {
+		dispatch(PersistenceAction());
+	}, [dispatch]);
+	console.log(persistence);
 	return (
 		<div>
 			<NavBar />
