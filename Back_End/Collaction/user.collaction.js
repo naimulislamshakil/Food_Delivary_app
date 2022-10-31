@@ -68,8 +68,10 @@ exports.loginUserCollaction = async (req, res) => {
 
 exports.userPersistence = async (req, res) => {
 	try {
+		const user = await userService.userPersistenceService(req.user?.email);
 		res.status(200).json({
-			data: req.user,
+			status: 'Success',
+			message: 'User Is Valid.',
 		});
 	} catch (error) {
 		res.status(500).json({
