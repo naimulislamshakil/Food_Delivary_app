@@ -17,7 +17,6 @@ export const RegisterAction =
 
 			const res = await axios.post('http://localhost:5000/api/v1/user', user);
 
-			console.log(res.data);
 			dispatch({
 				type: REGISTER_SUCCESS,
 				payload: res.data,
