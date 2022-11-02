@@ -5,17 +5,16 @@ export const PERSISTENCE_SUCCESS = 'PERSISTENCE_SUCCESS';
 export type Persistence = {
 	status: string;
 	message: string;
-	data: {
-		user: {
-			_id: string;
-			email: string;
-			role: string;
-			firstName: string;
-			lastName: string;
-			contactNumber: string;
-			img: string;
-			status: string;
-		};
+
+	user: {
+		_id: string;
+		email: string;
+		role: string;
+		firstName: string;
+		lastName: string;
+		contactNumber: string;
+		img: string;
+		status: string;
 	};
 };
 

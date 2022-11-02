@@ -24,11 +24,11 @@ const Login = () => {
 		};
 		dispatch(LoginAction(users));
 	};
-	window.localStorage.setItem('token', JSON.stringify(user?.data.token));
 
-	window.localStorage.setItem('user', JSON.stringify(user?.data.user));
 	if (user?.status === 'Success') {
-		console.log('hgfhgmbm');
+		window.localStorage.setItem('token', JSON.stringify(user?.data.token));
+
+		window.localStorage.setItem('user', JSON.stringify(user?.data.user));
 		navigate(from, { replace: true });
 		window.location.reload();
 	}

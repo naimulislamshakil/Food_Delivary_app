@@ -25,6 +25,11 @@ function App() {
 	useEffect(() => {
 		dispatch(PersistenceAction());
 	}, [dispatch]);
+
+	if (persistence.message?.status === 'Success') {
+		localStorage.setItem('user', JSON.stringify(persistence?.message?.user));
+	}
+
 	console.log(persistence);
 	return (
 		<div>

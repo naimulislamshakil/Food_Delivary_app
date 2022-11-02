@@ -6,9 +6,14 @@ import '../../scss/Navbar/Navbar.css';
 const NavBar = () => {
 	const [user, setUser] = useState({});
 	useEffect(() => {
-		const userText = window.localStorage.getItem('user');
-		const user = JSON.parse(userText!);
-		setUser(user);
+		if (localStorage.getItem('user') !== undefined) {
+			const userText = window.localStorage.getItem('user');
+			// const userText2 = window.localStorage.getItem('user2');
+			if (userText !== 'undefined') {
+				const user = JSON.parse(userText!);
+				setUser(user);
+			}
+		}
 	}, []);
 
 	const logout = () => {

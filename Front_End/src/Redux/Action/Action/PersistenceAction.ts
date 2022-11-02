@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { parse } from 'path';
 import { Dispatch } from 'redux';
 import {
 	PersistenceDispatcType,
@@ -26,7 +25,7 @@ export const PersistenceAction =
 					},
 				}
 			);
-			console.log(res.data);
+
 			dispatch({
 				type: PERSISTENCE_SUCCESS,
 				payload: res.data,
