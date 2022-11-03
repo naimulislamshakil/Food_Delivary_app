@@ -1,10 +1,20 @@
 const userService = require('../Service/user.service');
 const bcrypt = require('bcrypt');
 const { generateToken } = require('../Utils/jwtToken');
+const { sendEmailByGmail } = require('../Utils/email');
 
 exports.createAUserCollaction = async (req, res) => {
 	try {
 		const result = await userService.createAUserService(req.body);
+
+		const mailData = {
+			to: result.email,
+			subject: 'Plesce verify your emai.',
+			text: `Thankyou ${result.email}`,
+		};
+
+		sendEmailByGmail(mailData);
+
 		res.status(200).json({
 			status: 'Success',
 			message: 'User create Successfully.',
