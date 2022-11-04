@@ -2,15 +2,22 @@ const userService = require('../Service/user.service');
 const bcrypt = require('bcrypt');
 const { generateToken } = require('../Utils/jwtToken');
 const { sendEmailByGmail } = require('../Utils/email');
+const User = require('../Model/user.model');
 
 exports.createAUserCollaction = async (req, res) => {
 	try {
 		const result = await userService.createAUserService(req.body);
 
+		const token = result.generateConfirmToken();
+		await result.save({ validateBeforeSave: false });
 		const mailData = {
 			to: result.email,
 			subject: 'Plesce verify your emai.',
-			text: `Thankyou ${result.email}`,
+			text: `Hi ${result.firstName},
+			Thank you for creating account. So Place active your acount. Link:${
+				req.protocol
+			}://${req.get('host')}${req.originalUrl}/confirmation/${token}
+			`,
 		};
 
 		await sendEmailByGmail(mailData);

@@ -86,7 +86,7 @@ userSchma.pre('save', function (next) {
 	next();
 });
 
-userSchma.methods.generateToken = function () {
+userSchma.methods.generateConfirmToken = function () {
 	const token = crypto.randomBytes(32).toString('hex');
 
 	const date = new Date();
