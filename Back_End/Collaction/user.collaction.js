@@ -13,7 +13,7 @@ exports.createAUserCollaction = async (req, res) => {
 			text: `Thankyou ${result.email}`,
 		};
 
-		sendEmailByGmail(mailData);
+		await sendEmailByGmail(mailData);
 
 		res.status(200).json({
 			status: 'Success',

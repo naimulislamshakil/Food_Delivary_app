@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcrypt');
+const crypto = require('crypto');
 
 const userSchma = mongoose.Schema(
 	{
@@ -62,6 +63,9 @@ const userSchma = mongoose.Schema(
 			default: 'In-Active',
 			enum: ['Active', 'In-Active'],
 		},
+
+		confirmationToken: String,
+		confirmationTokenExpire: Date,
 		passwordChangeAt: Date,
 		passwordResetToken: String,
 		passwordResetExpirse: Date,
@@ -81,6 +85,17 @@ userSchma.pre('save', function (next) {
 	this.password = hashPassword;
 	next();
 });
+
+userSchma.methods.generateToken = function () {
+	const token = crypto.randomBytes(32).toString('hex');
+
+	const date = new Date();
+	date.setDate(date.getDate() + 1);
+
+	this.confirmationToken = token;
+	this.confirmationTokenExpire = date;
+	return token;
+};
 
 const User = mongoose.model('User', userSchma);
 
