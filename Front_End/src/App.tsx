@@ -20,6 +20,7 @@ import { RootStore } from './Redux/Store';
 import './scss/App/App.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Cart from './Component/AddToCart/Cart';
 
 function App() {
 	const dispatch = useDispatch();
@@ -46,6 +47,14 @@ function App() {
 					element={
 						<RequireAuth>
 							<BuyNow />
+						</RequireAuth>
+					}
+				></Route>
+				<Route
+					path="/cart"
+					element={
+						<RequireAuth>
+							<Cart />
 						</RequireAuth>
 					}
 				></Route>
