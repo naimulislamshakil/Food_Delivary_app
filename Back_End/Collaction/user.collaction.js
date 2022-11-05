@@ -99,3 +99,40 @@ exports.userPersistence = async (req, res) => {
 		});
 	}
 };
+exports.confirmEmail = async (req, res) => {
+	try {
+		const { token } = req.params;
+		const user = await userService.confirmEmailService(token);
+
+		if (!user) {
+			return res.status(403).json({
+				status: 'Faild',
+				message: 'Invalid token.',
+			});
+		}
+
+		const expire = new Date() > new Date(user.confirmationTokenExpire);
+
+		if (expire) {
+			return res.status(401).json({
+				status: 'Faild',
+				message: 'Your link has been expire.',
+			});
+		}
+
+		user.status = 'Active';
+		user.confirmationToken = undefined;
+		user.confirmationTokenExpire = undefined;
+		await user.save({ validateBeforeSave: false });
+
+		res.status(200).json({
+			status: 'Success',
+			message: 'User Is Valid.',
+		});
+	} catch (error) {
+		res.status(500).json({
+			status: 'Faild',
+			error: error.message,
+		});
+	}
+};

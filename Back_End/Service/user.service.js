@@ -13,3 +13,6 @@ exports.loginAUserService = async (email) => {
 exports.userPersistenceService = async (email) => {
 	return await User.findOne({ email });
 };
+exports.confirmEmailService = async (token) => {
+	return await User.findOne({ confirmationToken: token });
+};
