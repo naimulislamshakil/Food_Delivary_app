@@ -1,11 +1,11 @@
 import React, { FormEvent, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { RegisterAction } from '../Redux/Action/Action/RegisterAction';
 import { RootStore } from '../Redux/Store';
+import { toast } from 'react-toastify';
 
 const Register = () => {
-	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const user = useSelector((state: RootStore) => state.registerUser);
 
@@ -24,7 +24,7 @@ const Register = () => {
 		}
 	};
 	if (user.message?.status === 'Success') {
-		navigate('/login');
+		toast.success(`${user.message.message}. Pleace Active Your Account.`);
 	}
 
 	return (

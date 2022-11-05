@@ -18,6 +18,8 @@ import RequireAuth from './hooks/RequierAuth';
 import { PersistenceAction } from './Redux/Action/Action/PersistenceAction';
 import { RootStore } from './Redux/Store';
 import './scss/App/App.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 	const dispatch = useDispatch();
@@ -62,6 +64,7 @@ function App() {
 				<Route path="*" element={<NotFound />}></Route>
 			</Routes>
 			<Fooder />
+			<ToastContainer />
 		</div>
 	);
 }
