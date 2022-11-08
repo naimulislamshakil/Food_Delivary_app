@@ -8,6 +8,13 @@ const Item = () => {
 		const string = numValue.toString();
 		setValue(string);
 	};
+	const muines = () => {
+		if (value > '1') {
+			const numValue = parseInt(value) - 1;
+			const string = numValue.toString();
+			setValue(string);
+		}
+	};
 	return (
 		<div className="item-info p-2 d-flex align-items-center justify-content-center">
 			<div className="product-img">
@@ -37,7 +44,10 @@ const Item = () => {
 					type="text"
 					placeholder={value}
 				/>
-				<button className="btn btn-outline-danger ms-2">
+				<button
+					className="btn btn-outline-danger ms-2"
+					onClick={(e) => muines()}
+				>
 					<i className="bi bi-dash"></i>
 				</button>
 			</div>
