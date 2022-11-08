@@ -150,9 +150,15 @@ p {
 }
 
 // add to cart
+.item-info {
+	width: 100%;
+	height: 11rem;
+}
 
 .cart_main_container {
 	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
 	height: 56rem;
 	position: relative;
 	overflow-y: scroll;
