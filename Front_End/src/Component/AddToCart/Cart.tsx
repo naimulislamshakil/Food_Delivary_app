@@ -350,6 +350,13 @@ const Cart = () => {
 					</div>
 				</div>
 			</div>
+
+			<div className="card-total">
+				<h3>
+					Cart Total: <span>20000000৳</span>
+				</h3>
+				<button>CheckOut</button>
+			</div>
 		</section>
 	);
 };

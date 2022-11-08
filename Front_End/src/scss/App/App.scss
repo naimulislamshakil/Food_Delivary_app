@@ -162,6 +162,56 @@ p {
 	height: 56rem;
 }
 
+.card-total {
+	width: 95%;
+	margin-top: 4rem;
+	text-align: right;
+}
+
+.card-total h3 {
+	font-style: 200;
+	font-size: 2rem;
+	line-height: 3.2rem;
+	text-transform: capitalize;
+	color: #606166;
+}
+
+.card-total h3 span {
+	font-style: normal;
+	font-weight: bold;
+	font-size: 2rem;
+	line-height: 3.2rem;
+	text-transform: capitalize;
+	color: #000000;
+	margin-left: 1rem;
+}
+
+.card-total button {
+	border: none;
+	font-size: 1rem;
+	padding: 1rem 1rem;
+	color: #fff;
+	background-color: #349bf3;
+	text-transform: uppercase;
+	margin-top: 1rem;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	letter-spacing: 1px;
+}
+
+.card-total button:hover {
+	background-color: #0077dc;
+}
+
+.card-total .clear-cart {
+	margin-left: 3rem;
+	background-color: rgb(209, 61, 61);
+}
+
+.card-total .clear-cart:hover {
+	background-color: rgb(197, 5, 5);
+}
+
 @media only screen and (max-width: 576px) {
 	.nav-navbar {
 		display: block !important;
@@ -171,6 +221,17 @@ p {
 				margin-right: auto;
 			}
 		}
+	}
+}
+
+@media (max-width: 768px) {
+	.card-total {
+		margin-bottom: 2rem;
+		text-align: center;
+	}
+
+	.card-total button {
+		margin-bottom: 3rem;
 	}
 }
 
