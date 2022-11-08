@@ -149,6 +149,15 @@ p {
 	}
 }
 
+// add to cart
+
+.cart_main_container {
+	width: 90%;
+	height: 56rem;
+	position: relative;
+	overflow-y: scroll;
+}
+
 @media only screen and (max-width: 576px) {
 	.nav-navbar {
 		display: block !important;
