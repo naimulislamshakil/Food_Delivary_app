@@ -12,7 +12,7 @@ export interface AddToCartLoading {
 }
 export interface AddToCartFail {
 	type: typeof ADDTOCART_FAIL;
-	payload: AddToCart;
+	payload: null | any;
 }
 export interface AddToCartSuccess {
 	type: typeof ADDTOCART_SUCCESS;
