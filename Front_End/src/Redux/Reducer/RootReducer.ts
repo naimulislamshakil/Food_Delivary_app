@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import AddToCartReducer from './Reducer/AddToCartReducer';
 import GetSingleStore from './Reducer/GetByIdReducer';
 import LoginReducer from './Reducer/LoginReducer';
 import PersistenceReducer from './Reducer/PersistenceReducer';
@@ -11,6 +12,7 @@ const RootReducer = combineReducers({
 	registerUser: RegisterUser,
 	user: LoginReducer,
 	persistence: PersistenceReducer,
+	addToCart: AddToCartReducer,
 });
 
 export default RootReducer;
