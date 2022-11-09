@@ -13,6 +13,10 @@ const ProductCard = ({ product }: Props) => {
 	const buyNow = (id: string) => {
 		navigation(`/shopping/${id}`);
 	};
+
+	const addToCart = (item: SingleProduct) => {
+		console.log(item);
+	};
 	return (
 		<div
 			className="col-12 col-lg-3 col-md-6 mx-auto card shadow mt-3"
@@ -48,7 +52,12 @@ const ProductCard = ({ product }: Props) => {
 				>
 					Buy Now
 				</button>
-				<button className="btn btn-outline-danger">Add To Cart</button>
+				<button
+					className="btn btn-outline-danger"
+					onClick={(e) => addToCart(product)}
+				>
+					Add To Cart
+				</button>
 			</div>
 		</div>
 	);
