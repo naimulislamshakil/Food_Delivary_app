@@ -10,5 +10,6 @@ exports.addToCartFindService = async (id) => {
 };
 exports.addToCartFindByEmailService = async (email) => {
 	const result = await AddToCart.find({ email });
-	return result;
+	const count = await AddToCart.find({ email }).count();
+	return { result, count };
 };
