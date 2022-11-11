@@ -18,7 +18,9 @@ app.use(express.json());
 
 // Add Database
 mongoose
-	.connect(process.env.DB)
+	.connect(
+		`mongodb+srv://food:${process.env.DB_PASS}@cluster0.jqduyds.mongodb.net/?retryWrites=true&w=majority`
+	)
 	.then(() => console.log('Database connected successfully.'.red.bold))
 	.catch((err) => console.log(err));
 

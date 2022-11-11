@@ -13,7 +13,7 @@ const addToCartSchma = mongoose.Schema(
 		store: { id: String },
 		unit: String,
 		order: Number,
-		_id: String,
+		id: String,
 	},
 	{
 		timestamps: true,
