@@ -17,7 +17,6 @@ const Login = () => {
 
 	const onSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		console.log(email, password);
 
 		const users = {
 			email,

@@ -6,7 +6,22 @@ import {
 	ADDTOCART_LOADING,
 	ADDTOCART_SUCCESS,
 } from '../ActionType/AddToCartActionType';
-import { SingleProduct } from '../ActionType/GetByIdActionType';
+
+interface SingleProduct {
+	email: string;
+	store: {
+		id: string;
+	};
+	id: string;
+	name: string;
+	quantity: number;
+	unit: string;
+	description: string;
+	price: number;
+	img: string;
+	category: string;
+	status: string;
+}
 
 export const AddToCartAction =
 	(item: SingleProduct) =>
@@ -16,7 +31,10 @@ export const AddToCartAction =
 				type: ADDTOCART_LOADING,
 			});
 
-			const res = await axios.post('');
+			const res = await axios.post(
+				'http://localhost:5000/api/v1/addToCart',
+				item
+			);
 
 			dispatch({
 				type: ADDTOCART_SUCCESS,

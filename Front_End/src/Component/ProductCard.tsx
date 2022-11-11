@@ -1,7 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { AddToCartAction } from '../Redux/Action/Action/AddToCartAction';
 import { SingleProduct } from '../Redux/Action/ActionType/GetByIdActionType';
+import { RootStore } from '../Redux/Store';
 import '../scss/App/App.css';
 
 interface Props {
@@ -9,6 +13,9 @@ interface Props {
 }
 
 const ProductCard = ({ product }: Props) => {
+	const dispatch = useDispatch();
+	const addToCartDispatch = useSelector((state: RootStore) => state.addToCart);
+
 	const navigation = useNavigate();
 
 	const buyNow = (id: string) => {
@@ -43,8 +50,14 @@ const ProductCard = ({ product }: Props) => {
 			store,
 			unit,
 		};
-		console.log(product);
+		dispatch(AddToCartAction(product));
+		if (addToCartDispatch.message?.status === 'Success') {
+			toast.success(addToCartDispatch.message.message);
+		} else {
+			toast.error(addToCartDispatch.message?.message);
+		}
 	};
+
 	return (
 		<div
 			className="col-12 col-lg-3 col-md-6 mx-auto card shadow mt-3"
