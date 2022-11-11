@@ -23,3 +23,20 @@ exports.addToCartCreateCollaction = async (req, res) => {
 		});
 	}
 };
+
+exports.addToCartFindByEmailCollaction = async (req, res) => {
+	try {
+		const { email } = req.params;
+
+		const result = await service.addToCartCreateService(req.body);
+		res.status(200).json({
+			status: 'Success',
+			message: 'Item Add Successfully.',
+		});
+	} catch (error) {
+		res.status(500).json({
+			status: 'Faild',
+			error: error.message,
+		});
+	}
+};
