@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../../scss/App/App.css';
 import { Scrollbars } from 'react-custom-scrollbars-2';
 import Item from './Item';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootStore } from '../../Redux/Store';
+import { GetAddToCartAction } from '../../Redux/Action/Action/getAddToCartAction';
 
 const Cart = () => {
+	const dispatch = useDispatch();
+	const getAddToCarts = useSelector((state: RootStore) => state.getAddToCarts);
+
+	const user = JSON.parse(localStorage.getItem('user')!);
+	const { email } = user;
+
+	useEffect(() => {
+		dispatch(GetAddToCartAction(email));
+	}, [dispatch, email]);
+
+	console.log(getAddToCarts);
 	return (
 		<section className="container-fluid">
 			<h2>Shopping Cart</h2>
@@ -19,7 +33,9 @@ const Cart = () => {
 						style={{ background: '#f5e2df' }}
 					>
 						<Scrollbars>
-							<Item />
+							{getAddToCarts.message?.result?.result.map((cart) => (
+								<Item key={cart._id} cart={cart}></Item>
+							))}
 						</Scrollbars>
 					</div>
 				</div>

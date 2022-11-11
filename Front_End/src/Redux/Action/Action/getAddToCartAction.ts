@@ -7,7 +7,7 @@ import {
 	GET_ADDTOCART_SUCCESS,
 } from '../ActionType/getAddToCartActionType';
 
-export const AddToCartAction =
+export const GetAddToCartAction =
 	(email: string) => async (dispatch: Dispatch<GetAddToCartDispatchType>) => {
 		try {
 			dispatch({

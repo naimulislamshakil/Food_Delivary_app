@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
+import { SingleAddToCartProduct } from '../../Redux/Action/ActionType/getAddToCartActionType';
 
-const Item = () => {
+interface Props {
+	cart: SingleAddToCartProduct;
+}
+
+const Item = ({ cart }: Props) => {
 	const [value, setValue] = useState('1');
 
 	const plus = () => {
@@ -19,7 +24,7 @@ const Item = () => {
 		<div className="item-info p-2 d-flex align-items-center justify-content-center">
 			<div className="product-img">
 				<img
-					src="https://i.ibb.co/CbmfpLt/image.jpg"
+					src={cart.img}
 					alt=""
 					style={{
 						width: '120px',
@@ -30,8 +35,8 @@ const Item = () => {
 			</div>
 
 			<div className="title ms-5">
-				<h6>Perfect Long-Grain White Rice</h6>
-				<p>Rich</p>
+				<h6>{cart.name}</h6>
+				<p>{cart.category}</p>
 			</div>
 
 			<div className="input-field ms-5">
