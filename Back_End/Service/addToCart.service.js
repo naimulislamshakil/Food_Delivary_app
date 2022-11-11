@@ -8,3 +8,7 @@ exports.addToCartFindService = async (id) => {
 	const result = await AddToCart.find({ id });
 	return result;
 };
+exports.addToCartFindByEmailService = async (email) => {
+	const result = await AddToCart.find({ email });
+	return result;
+};
