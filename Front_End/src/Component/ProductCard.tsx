@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SingleProduct } from '../Redux/Action/ActionType/GetByIdActionType';
@@ -15,7 +16,34 @@ const ProductCard = ({ product }: Props) => {
 	};
 
 	const addToCart = (item: SingleProduct) => {
-		console.log(item);
+		const {
+			_id: id,
+			category,
+			description,
+			img,
+			name,
+			price,
+			quantity,
+			status,
+			store,
+			unit,
+		} = item;
+		const user = JSON.parse(localStorage.getItem('user')!);
+		const { email } = user;
+		const product = {
+			email,
+			id,
+			category,
+			description,
+			img,
+			name,
+			price,
+			quantity,
+			status,
+			store,
+			unit,
+		};
+		console.log(product);
 	};
 	return (
 		<div
