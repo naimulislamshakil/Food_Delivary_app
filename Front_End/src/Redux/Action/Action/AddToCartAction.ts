@@ -7,7 +7,7 @@ import {
 	ADDTOCART_SUCCESS,
 } from '../ActionType/AddToCartActionType';
 
-interface SingleProduct {
+interface SingleProducts {
 	email: string;
 	store: {
 		id: string;
@@ -24,7 +24,7 @@ interface SingleProduct {
 }
 
 export const AddToCartAction =
-	(item: SingleProduct) =>
+	(item: SingleProducts) =>
 	async (dispatch: Dispatch<AddToCartDispatchType>) => {
 		try {
 			dispatch({

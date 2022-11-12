@@ -7,7 +7,7 @@ import { RootStore } from '../../Redux/Store';
 import '../../scss/Navbar/Navbar.css';
 
 const NavBar = () => {
-	const [user, setUser] = useState({});
+	const [user, setUser] = useState();
 
 	const dispatch = useDispatch();
 	const getAddToCarts = useSelector((state: RootStore) => state.getAddToCarts);
@@ -15,7 +15,7 @@ const NavBar = () => {
 		if (localStorage.getItem('user')) {
 			const user = JSON.parse(window.localStorage.getItem('user')!);
 			setUser(user);
-
+			console.log(user);
 			dispatch(GetAddToCartAction(user.email));
 		}
 	}, [dispatch]);

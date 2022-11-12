@@ -2,19 +2,17 @@ const service = require('../Service/addToCart.service');
 
 exports.addToCartCreateCollaction = async (req, res) => {
 	try {
-		const { id } = req.body;
-		const exzist = await service.addToCartFindService(id);
-		if (exzist) {
-			return res.status(200).json({
-				status: 'Fail',
-				message: 'Item Alrady Added.',
-			});
-		} else {
+		const { id, email } = req.body;
+		// console.log(req.body);
+		const exzist = await service.addToCartFindService(id, email);
+
+		if (exzist === []) {
 			const result = await service.addToCartCreateService(req.body);
-			res.status(200).json({
+			return res.status(200).json({
 				status: 'Success',
 				message: 'Item Add Successfully.',
 			});
+		} else {
 		}
 	} catch (error) {
 		res.status(500).json({

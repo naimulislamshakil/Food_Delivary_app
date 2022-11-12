@@ -22,22 +22,21 @@ const AddToCartReducer = (
 	action: AddToCartDispatchType
 ): DefaultState => {
 	switch (action.type) {
-		case ADDTOCART_LOADING:
-			return {
-				loading: true,
-				error: null,
-			};
 		case ADDTOCART_FAIL:
 			return {
 				loading: false,
 				error: action.payload,
 			};
-
+		case ADDTOCART_LOADING:
+			return {
+				loading: true,
+				error: null,
+			};
 		case ADDTOCART_SUCCESS:
 			return {
 				loading: false,
-				message: action.payload,
 				error: null,
+				message: action.payload,
 			};
 
 		default:
