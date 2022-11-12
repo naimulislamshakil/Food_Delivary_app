@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { SingleAddToCartProduct } from '../../Redux/Action/ActionType/getAddToCartActionType';
 
 interface Props {
@@ -6,20 +6,21 @@ interface Props {
 }
 
 const Item = ({ cart }: Props) => {
-	const [value, setValue] = useState(0);
-
-	useEffect(() => {
-		setValue(cart.quantity);
-	}, [cart]);
+	const [value, setValue] = useState(1);
+	const [productPrice, setProductPrice] = useState(cart.price);
 
 	const plus = () => {
 		const numValue = value + 1;
+		const price = cart.price * numValue;
 		setValue(numValue);
+		setProductPrice(price);
 	};
 	const muines = () => {
 		if (value > 1) {
 			const numValue = value - 1;
+			const price = cart.price * numValue;
 			setValue(numValue);
+			setProductPrice(price);
 		}
 	};
 	return (
@@ -60,7 +61,7 @@ const Item = ({ cart }: Props) => {
 			</div>
 
 			<div className="price ms-5">
-				<h6>{cart.price}৳</h6>
+				<h6>{productPrice}৳</h6>
 			</div>
 
 			<div className="remove ms-5">

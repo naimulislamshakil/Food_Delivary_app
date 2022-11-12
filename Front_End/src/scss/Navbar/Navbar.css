@@ -1,18 +1,18 @@
 .cart-icon {
-  position: relative;
+	position: relative;
 }
 .cart-icon .cart-text {
-  position: relative;
-  top: -30px;
-  right: -20px;
-  color: #fff;
-  width: 15px;
-  height: 15px;
-  border-radius: 10px;
-  padding: 5px;
-  font-size: 0.8rem;
-  font-weight: 500;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}/*# sourceMappingURL=Navbar.css.map */
+	position: relative;
+	top: -30px;
+	right: -20px;
+	color: #fff;
+	width: 15px;
+	height: 15px;
+	border-radius: 10px;
+	padding: 10px;
+	font-size: 0.8rem;
+	font-weight: 500;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+} /*# sourceMappingURL=Navbar.css.map */
