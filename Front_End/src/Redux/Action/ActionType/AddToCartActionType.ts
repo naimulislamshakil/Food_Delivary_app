@@ -1,5 +1,5 @@
-export const ADDTOCART_LOADING = 'ADDTOCART_LOADING';
 export const ADDTOCART_FAIL = 'ADDTOCART_FAIL';
+export const ADDTOCART_LOADING = 'ADDTOCART_LOADING';
 export const ADDTOCART_SUCCESS = 'ADDTOCART_SUCCESS';
 
 export type AddToCart = {
@@ -19,7 +19,7 @@ export interface AddToCartSuccess {
 	payload: AddToCart;
 }
 
-export type AddToCartDispatchType =
+export type AddToCartTypeDispatch =
 	| AddToCartFail
 	| AddToCartLoading
 	| AddToCartSuccess;

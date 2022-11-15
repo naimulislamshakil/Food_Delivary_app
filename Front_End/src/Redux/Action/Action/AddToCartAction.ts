@@ -1,13 +1,13 @@
 import axios from 'axios';
 import { Dispatch } from 'redux';
 import {
-	AddToCartDispatchType,
+	AddToCartTypeDispatch,
 	ADDTOCART_FAIL,
 	ADDTOCART_LOADING,
 	ADDTOCART_SUCCESS,
-} from '../ActionType/AddToCartActionType';
+} from '../ActionType/addToCartActionType';
 
-interface SingleProducts {
+interface Item {
 	email: string;
 	store: {
 		id: string;
@@ -24,8 +24,7 @@ interface SingleProducts {
 }
 
 export const AddToCartAction =
-	(item: SingleProducts) =>
-	async (dispatch: Dispatch<AddToCartDispatchType>) => {
+	(item: Item) => async (dispatch: Dispatch<AddToCartTypeDispatch>) => {
 		try {
 			dispatch({
 				type: ADDTOCART_LOADING,

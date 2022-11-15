@@ -1,10 +1,10 @@
 import {
 	AddToCart,
-	AddToCartDispatchType,
+	AddToCartTypeDispatch,
 	ADDTOCART_FAIL,
 	ADDTOCART_LOADING,
 	ADDTOCART_SUCCESS,
-} from '../../Action/ActionType/AddToCartActionType';
+} from '../../Action/ActionType/addToCartActionType';
 
 interface DefaultState {
 	loading: boolean;
@@ -19,18 +19,18 @@ const initialState: DefaultState = {
 
 const AddToCartReducer = (
 	state: DefaultState = initialState,
-	action: AddToCartDispatchType
+	action: AddToCartTypeDispatch
 ): DefaultState => {
 	switch (action.type) {
-		case ADDTOCART_FAIL:
-			return {
-				loading: false,
-				error: action.payload,
-			};
 		case ADDTOCART_LOADING:
 			return {
 				loading: true,
 				error: null,
+			};
+		case ADDTOCART_FAIL:
+			return {
+				loading: false,
+				error: action.payload,
 			};
 		case ADDTOCART_SUCCESS:
 			return {

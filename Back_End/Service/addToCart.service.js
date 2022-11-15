@@ -6,7 +6,10 @@ exports.addToCartCreateService = async (item) => {
 };
 exports.addToCartFindService = async (id, email) => {
 	const findByEmail = await AddToCart.find({ email });
-	const result = findByEmail.filter((product) => product.id == id);
+	// console.log(findByEmail);
+
+	const result = findByEmail?.find((product) => product.id === id);
+
 	return result;
 };
 exports.addToCartFindByEmailService = async (email) => {

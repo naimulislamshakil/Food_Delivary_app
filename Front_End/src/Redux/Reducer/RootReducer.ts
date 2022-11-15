@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import AddToCartReducer from './Reducer/AddToCartReducer';
+import AddToCartReducer from './Reducer/addToCartReducer';
 import GetAddToCartReducer from './Reducer/getAddToCartReducer';
 import GetSingleStore from './Reducer/GetByIdReducer';
 import LoginReducer from './Reducer/LoginReducer';

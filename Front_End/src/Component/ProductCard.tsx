@@ -3,7 +3,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { AddToCartAction } from '../Redux/Action/Action/AddToCartAction';
+import { AddToCartAction } from '../Redux/Action/Action/addToCartAction';
 import { SingleProduct } from '../Redux/Action/ActionType/GetByIdActionType';
 import { RootStore } from '../Redux/Store';
 import '../scss/App/App.css';
