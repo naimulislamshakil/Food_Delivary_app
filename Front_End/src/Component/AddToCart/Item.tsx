@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RemoveAddToCartAction } from '../../Redux/Action/Action/removeAddToCartAction.';
 import { SingleAddToCartProduct } from '../../Redux/Action/ActionType/getAddToCartActionType';
+import { RootStore } from '../../Redux/Store';
 
 interface Props {
 	cart: SingleAddToCartProduct;
 }
 
 const Item = ({ cart }: Props) => {
+	const dispatch = useDispatch();
+	const removeAddTo = useSelector((state: RootStore) => state.removeAddToCart);
 	const [value, setValue] = useState(1);
 	const [productPrice, setProductPrice] = useState(cart.price);
 
@@ -23,6 +28,12 @@ const Item = ({ cart }: Props) => {
 			setProductPrice(price);
 		}
 	};
+
+	const removeAddToCart = (id: string) => {
+		dispatch(RemoveAddToCartAction(id));
+		window.location.reload();
+	};
+
 	return (
 		<div className="item-info p-2 d-flex align-items-center justify-content-center">
 			<div className="product-img">
@@ -65,7 +76,12 @@ const Item = ({ cart }: Props) => {
 			</div>
 
 			<div className="remove ms-5">
-				<button className="btn btn-outline-danger">X</button>
+				<button
+					onClick={(e) => removeAddToCart(cart._id)}
+					className="btn btn-outline-danger"
+				>
+					X
+				</button>
 			</div>
 		</div>
 	);

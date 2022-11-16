@@ -47,8 +47,8 @@ exports.addToCartFindByEmailCollaction = async (req, res) => {
 exports.removeAddToCartCollaction = async (req, res) => {
 	try {
 		const { id } = req.params;
-		const { email } = req.user;
-		const result = await service.removeAddToCartService(id, email);
+
+		const result = await service.removeAddToCartService(id);
 		console.log(result);
 		res.status(200).json({
 			status: 'Success',
