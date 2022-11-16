@@ -19,5 +19,6 @@ exports.addToCartFindByEmailService = async (email) => {
 };
 
 exports.removeAddToCartService = async (id, email) => {
-	console.log(id, email);
+	const result = await AddToCart.deleteOne({ _id: id });
+	return result;
 };

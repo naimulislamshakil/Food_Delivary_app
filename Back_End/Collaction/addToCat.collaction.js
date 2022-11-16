@@ -7,7 +7,6 @@ exports.addToCartCreateCollaction = async (req, res) => {
 		const exzist = await service.addToCartFindService(id, email);
 		console.log(exzist);
 		if (exzist === undefined) {
-			console.log('hi');
 			const result = await service.addToCartCreateService(req.body);
 			return res.status(200).json({
 				status: 'Success',
@@ -46,7 +45,20 @@ exports.addToCartFindByEmailCollaction = async (req, res) => {
 };
 
 exports.removeAddToCartCollaction = async (req, res) => {
-	const { id } = req.params;
-	const { email } = req.user;
-	const result = await service.removeAddToCartService(id, email);
+	try {
+		const { id } = req.params;
+		const { email } = req.user;
+		const result = await service.removeAddToCartService(id, email);
+		console.log(result);
+		res.status(200).json({
+			status: 'Success',
+			message: 'Succesfully Delete Your Cart Product.',
+			result,
+		});
+	} catch (error) {
+		res.status(500).json({
+			status: 'Faild',
+			error: error.message,
+		});
+	}
 };
