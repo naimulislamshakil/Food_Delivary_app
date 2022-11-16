@@ -51,14 +51,13 @@ const ProductCard = ({ product }: Props) => {
 			unit,
 		};
 		dispatch(AddToCartAction(product));
-		if (addToCartDispatch?.message?.status === 'Success') {
-			// console.log(addToCartDispatch?.message?.status);
-			toast.success(addToCartDispatch.message.message);
-		} else {
-			toast.error(addToCartDispatch.message?.message);
-		}
 	};
-	console.log(addToCartDispatch);
+	if (addToCartDispatch?.message?.status === 'Success') {
+		// console.log(addToCartDispatch?.message?.status);
+		toast.success(addToCartDispatch.message.message);
+	} else {
+		toast.error(addToCartDispatch.message?.message);
+	}
 
 	return (
 		<div

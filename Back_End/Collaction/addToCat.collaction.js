@@ -44,3 +44,9 @@ exports.addToCartFindByEmailCollaction = async (req, res) => {
 		});
 	}
 };
+
+exports.removeAddToCartCollaction = async (req, res) => {
+	const { id } = req.params;
+	const { email } = req.user;
+	const result = await service.removeAddToCartService(id, email);
+};

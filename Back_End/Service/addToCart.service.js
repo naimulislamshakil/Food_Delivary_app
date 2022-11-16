@@ -17,3 +17,7 @@ exports.addToCartFindByEmailService = async (email) => {
 	const count = await AddToCart.find({ email }).count();
 	return { result, count };
 };
+
+exports.removeAddToCartService = async (id, email) => {
+	console.log(id, email);
+};
