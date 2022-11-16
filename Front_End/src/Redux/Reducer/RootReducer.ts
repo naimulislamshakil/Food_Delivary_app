@@ -5,6 +5,7 @@ import GetSingleStore from './Reducer/GetByIdReducer';
 import LoginReducer from './Reducer/LoginReducer';
 import PersistenceReducer from './Reducer/PersistenceReducer';
 import RegisterUser from './Reducer/RegisterReducer';
+import RemoveAddToCartReducer from './Reducer/removeAddToCartReducer';
 import StoreByLocations from './Reducer/StoreByLocationReducer';
 
 const RootReducer = combineReducers({
@@ -15,6 +16,7 @@ const RootReducer = combineReducers({
 	persistence: PersistenceReducer,
 	addToCart: AddToCartReducer,
 	getAddToCarts: GetAddToCartReducer,
+	removeAddToCart: RemoveAddToCartReducer,
 });
 
 export default RootReducer;
