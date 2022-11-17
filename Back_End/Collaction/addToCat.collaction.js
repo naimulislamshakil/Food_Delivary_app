@@ -78,3 +78,18 @@ exports.incressAddToCartCollaction = async (req, res) => {
 		});
 	}
 };
+exports.decressAddToCartCollaction = async (req, res) => {
+	try {
+		const { id } = req.params;
+		const result = await service.decressAddToCartService(id);
+		res.status(200).json({
+			status: 'Success',
+			message: 'Ok',
+		});
+	} catch (error) {
+		res.status(500).json({
+			status: 'Faild',
+			error: error.message,
+		});
+	}
+};

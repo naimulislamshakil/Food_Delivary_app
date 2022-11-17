@@ -29,3 +29,9 @@ exports.incressAddToCartService = async (id) => {
 		{ $inc: { orderQuantity: 1 } }
 	);
 };
+exports.decressAddToCartService = async (id) => {
+	const update = await AddToCart.updateOne(
+		{ _id: id },
+		{ $inc: { orderQuantity: -1 } }
+	);
+};

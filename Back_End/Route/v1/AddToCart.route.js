@@ -7,6 +7,9 @@ router
 	.route('/addToCart/incress/:id')
 	.get(collaction.incressAddToCartCollaction);
 router
+	.route('/addToCart/decress/:id')
+	.get(collaction.decressAddToCartCollaction);
+router
 	.route('/removeAddToCart/:id')
 	.delete(collaction.removeAddToCartCollaction);
 router
