@@ -22,3 +22,10 @@ exports.removeAddToCartService = async (id) => {
 	const result = await AddToCart.deleteOne({ _id: id });
 	return result;
 };
+
+exports.incressAddToCartService = async (id) => {
+	const update = await AddToCart.updateOne(
+		{ _id: id },
+		{ $inc: { orderQuantity: 1 } }
+	);
+};

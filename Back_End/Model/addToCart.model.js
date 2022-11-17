@@ -8,6 +8,10 @@ const addToCartSchma = mongoose.Schema(
 		img: String,
 		name: String,
 		price: Number,
+		orderQuantity: {
+			type: Number,
+			default: 1,
+		},
 		quantity: Number,
 		status: String,
 		store: { id: String },
