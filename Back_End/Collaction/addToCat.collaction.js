@@ -66,6 +66,7 @@ exports.removeAddToCartCollaction = async (req, res) => {
 exports.incressAddToCartCollaction = async (req, res) => {
 	try {
 		const { id } = req.params;
+		// console.log(id);
 		const result = await service.incressAddToCartService(id);
 		res.status(200).json({
 			status: 'Success',

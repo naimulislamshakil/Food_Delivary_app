@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AddToCartAction } from '../Redux/Action/Action/addToCartAction';
 import { SingleProduct } from '../Redux/Action/ActionType/GetByIdActionType';
@@ -15,12 +14,6 @@ interface Props {
 const ProductCard = ({ product }: Props) => {
 	const dispatch = useDispatch();
 	const addToCartDispatch = useSelector((state: RootStore) => state.addToCart);
-
-	const navigation = useNavigate();
-
-	const buyNow = (id: string) => {
-		navigation(`/shopping/${id}`);
-	};
 
 	const addToCart = (item: SingleProduct) => {
 		const {
@@ -45,6 +38,7 @@ const ProductCard = ({ product }: Props) => {
 			img,
 			name,
 			price,
+			totalPrice: price * 1,
 			quantity,
 			status,
 			store,
@@ -89,13 +83,7 @@ const ProductCard = ({ product }: Props) => {
 			</div>
 			<div className="card-footer justify-content-between d-flex">
 				<button
-					className="btn btn-outline-success"
-					onClick={() => buyNow(product._id)}
-				>
-					Buy Now
-				</button>
-				<button
-					className="btn btn-outline-danger"
+					className="btn mx-auto btn-outline-danger"
 					onClick={(e) => addToCart(product)}
 				>
 					Add To Cart

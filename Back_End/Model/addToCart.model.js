@@ -12,6 +12,7 @@ const addToCartSchma = mongoose.Schema(
 			type: Number,
 			default: 1,
 		},
+		totalPrice: Number,
 		quantity: Number,
 		status: String,
 		store: { id: String },

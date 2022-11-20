@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { IncressAddToCartAction } from '../../Redux/Action/Action/incressAddToCartAction';
 import { RemoveAddToCartAction } from '../../Redux/Action/Action/removeAddToCartAction.';
 import { SingleAddToCartProduct } from '../../Redux/Action/ActionType/getAddToCartActionType';
 import { RootStore } from '../../Redux/Store';
@@ -10,13 +11,18 @@ interface Props {
 
 const Item = ({ cart }: Props) => {
 	const dispatch = useDispatch();
-	const removeAddTo = useSelector((state: RootStore) => state.removeAddToCart);
-	const [value, setValue] = useState(1);
+	// const removeAddTo = useSelector((state: RootStore) => state.removeAddToCart);
+	const incressRemoveAddTo = useSelector((state: RootStore) => state.incress);
+	const [value, setValue] = useState(cart.orderQuantity);
 	const [productPrice, setProductPrice] = useState(cart.price);
 
-	const plus = () => {
+	const plus = (id: string) => {
+		console.log(id);
+
+		dispatch(IncressAddToCartAction(id));
 		const numValue = value + 1;
 		const price = cart.price * numValue;
+		console.log(price);
 		setValue(numValue);
 		setProductPrice(price);
 	};
@@ -28,6 +34,7 @@ const Item = ({ cart }: Props) => {
 			setProductPrice(price);
 		}
 	};
+	console.log(incressRemoveAddTo);
 
 	const removeAddToCart = (id: string) => {
 		dispatch(RemoveAddToCartAction(id));
@@ -54,7 +61,10 @@ const Item = ({ cart }: Props) => {
 			</div>
 
 			<div className="input-field ms-5">
-				<button className="btn btn-outline-success" onClick={(e) => plus()}>
+				<button
+					className="btn btn-outline-success"
+					onClick={(e) => plus(cart._id)}
+				>
 					<i className="bi bi-plus"></i>
 				</button>
 				<input

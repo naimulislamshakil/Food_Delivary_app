@@ -13,6 +13,7 @@ export type SingleAddToCartProduct = {
 	img: string;
 	name: string;
 	price: number;
+	orderQuantity: number;
 	quantity: number;
 	status: string;
 	unit: string;
