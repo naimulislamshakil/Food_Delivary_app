@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import DecressAddToCartReducer from './decressAddToCartReducer';
 import AddToCartReducer from './Reducer/addToCartReducer';
 import GetAddToCartReducer from './Reducer/getAddToCartReducer';
 import GetSingleStore from './Reducer/GetByIdReducer';
@@ -19,6 +20,7 @@ const RootReducer = combineReducers({
 	getAddToCarts: GetAddToCartReducer,
 	removeAddToCart: RemoveAddToCartReducer,
 	incress: IncressAddToCartReducer,
+	decress: DecressAddToCartReducer,
 });
 
 export default RootReducer;

@@ -23,15 +23,23 @@ exports.removeAddToCartService = async (id) => {
 	return result;
 };
 
-exports.incressAddToCartService = async (id) => {
+exports.incressAddToCartService = async (id, price) => {
 	const update = await AddToCart.updateOne(
 		{ _id: id },
 		{ $inc: { orderQuantity: 1 } }
 	);
+	const updatePrice = await AddToCart.findByIdAndUpdate(
+		{ _id: id },
+		{ totalPrice: price }
+	);
 };
-exports.decressAddToCartService = async (id) => {
+exports.decressAddToCartService = async (id, price) => {
 	const update = await AddToCart.updateOne(
 		{ _id: id },
 		{ $inc: { orderQuantity: -1 } }
+	);
+	const updatePrice = await AddToCart.findByIdAndUpdate(
+		{ _id: id },
+		{ totalPrice: price }
 	);
 };

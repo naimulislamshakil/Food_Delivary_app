@@ -66,8 +66,9 @@ exports.removeAddToCartCollaction = async (req, res) => {
 exports.incressAddToCartCollaction = async (req, res) => {
 	try {
 		const { id } = req.params;
-		// console.log(id);
-		const result = await service.incressAddToCartService(id);
+		const { price } = req.query;
+		// console.log(price);
+		const result = await service.incressAddToCartService(id, price);
 		res.status(200).json({
 			status: 'Success',
 			message: 'Ok',
@@ -82,7 +83,9 @@ exports.incressAddToCartCollaction = async (req, res) => {
 exports.decressAddToCartCollaction = async (req, res) => {
 	try {
 		const { id } = req.params;
-		const result = await service.decressAddToCartService(id);
+		const { price } = req.query;
+		// console.log(price);
+		const result = await service.decressAddToCartService(id, price);
 		res.status(200).json({
 			status: 'Success',
 			message: 'Ok',

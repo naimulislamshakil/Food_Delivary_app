@@ -8,14 +8,15 @@ import {
 } from '../ActionType/decressAddToCartActionType';
 
 export const DecressAddToCartAction =
-	(id: string) => async (dispatch: Dispatch<DecressAddToCartTypeDispatch>) => {
+	(id: string, price: number) =>
+	async (dispatch: Dispatch<DecressAddToCartTypeDispatch>) => {
 		try {
 			dispatch({
 				type: DECRESS_ADDTOCART_LOADING,
 			});
 
 			const res = await axios.get(
-				`http://localhost:5000/api/v1//addToCart/decress/${id}`
+				`http://localhost:5000/api/v1//addToCart/decress/${id}?price=${price}`
 			);
 
 			dispatch({

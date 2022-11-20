@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { DecressAddToCartAction } from '../../Redux/Action/Action/desressAddToCartAction';
 import { IncressAddToCartAction } from '../../Redux/Action/Action/incressAddToCartAction';
 import { RemoveAddToCartAction } from '../../Redux/Action/Action/removeAddToCartAction.';
 import { SingleAddToCartProduct } from '../../Redux/Action/ActionType/getAddToCartActionType';
@@ -17,19 +18,20 @@ const Item = ({ cart }: Props) => {
 	const [productPrice, setProductPrice] = useState(cart.price);
 
 	const plus = (id: string) => {
-		console.log(id);
+		// console.log(id);
 
-		dispatch(IncressAddToCartAction(id));
 		const numValue = value + 1;
 		const price = cart.price * numValue;
-		console.log(price);
+		dispatch(IncressAddToCartAction(id, price));
+		// console.log(price);
 		setValue(numValue);
 		setProductPrice(price);
 	};
-	const muines = () => {
+	const muines = (id: string) => {
 		if (value > 1) {
 			const numValue = value - 1;
 			const price = cart.price * numValue;
+			dispatch(DecressAddToCartAction(id, price));
 			setValue(numValue);
 			setProductPrice(price);
 		}
@@ -75,7 +77,7 @@ const Item = ({ cart }: Props) => {
 				/>
 				<button
 					className="btn btn-outline-danger ms-2"
-					onClick={(e) => muines()}
+					onClick={(e) => muines(cart._id)}
 				>
 					<i className="bi bi-dash"></i>
 				</button>
