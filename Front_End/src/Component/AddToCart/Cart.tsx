@@ -5,9 +5,11 @@ import Item from './Item';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootStore } from '../../Redux/Store';
 import { GetAddToCartAction } from '../../Redux/Action/Action/getAddToCartAction';
+import { useNavigate } from 'react-router-dom';
 // import { SingleAddToCartProduct } from '../../Redux/Action/ActionType/getAddToCartActionType';
 
 const Cart = () => {
+	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const getAddToCarts = useSelector((state: RootStore) => state.getAddToCarts);
 	let totalPrice = getAddToCarts.message?.result.result.reduce(
@@ -22,6 +24,10 @@ const Cart = () => {
 	useEffect(() => {
 		dispatch(GetAddToCartAction(email));
 	}, [dispatch, email]);
+
+	const chackout = (price: number | undefined) => {
+		navigate(`/shopping/${price}`);
+	};
 
 	return (
 		<section className="container-fluid">
@@ -52,7 +58,7 @@ const Cart = () => {
 				<h3>
 					Cart Total: <span>{totalPrice}৳</span>
 				</h3>
-				<button>CheckOut</button>
+				<button onClick={(e) => chackout(totalPrice)}>CheckOut</button>
 			</div>
 		</section>
 	);

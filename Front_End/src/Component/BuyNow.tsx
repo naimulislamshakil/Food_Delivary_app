@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 const BuyNow = () => {
-	const { id } = useParams();
+	const [tax, setTax] = useState(0);
+	const { totalPrice } = useParams();
+	console.log(totalPrice);
 	return (
 		<section className="container-fluid mt-3 p-5">
 			<div className="row">
@@ -14,31 +16,27 @@ const BuyNow = () => {
 					<ul className="list-group mb-3">
 						<li className="list-group-item d-flex justify-content-between lh-condensed">
 							<div>
-								<h6 className="my-0">Product name</h6>
-								<small className="text-muted">Brief description</small>
+								<h6 className="my-0">Total Price</h6>
 							</div>
-							<span className="text-muted">$12</span>
+							<b>
+								<span className="text-muted">৳{totalPrice}</span>
+							</b>
 						</li>
 						<li className="list-group-item d-flex justify-content-between lh-condensed">
 							<div>
-								<h6 className="my-0">Second product</h6>
-								<small className="text-muted">Brief description</small>
+								<h6 className="my-0">Tax</h6>
 							</div>
-							<span className="text-muted">$8</span>
+							<b>
+								<span className="text-muted">৳{totalPrice}</span>
+							</b>
 						</li>
-						<li className="list-group-item d-flex justify-content-between lh-condensed">
-							<div>
-								<h6 className="my-0">Third item</h6>
-								<small className="text-muted">Brief description</small>
-							</div>
-							<span className="text-muted">$5</span>
-						</li>
+
 						<li className="list-group-item d-flex justify-content-between bg-light">
 							<div className="text-success">
 								<h6 className="my-0">Promo code</h6>
 								<small>EXAMPLECODE</small>
 							</div>
-							<span className="text-success">-$5</span>
+							<span className="text-success">-৳0</span>
 						</li>
 						<li className="list-group-item d-flex justify-content-between">
 							<span>Total (USD)</span>

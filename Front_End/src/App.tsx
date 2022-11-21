@@ -43,7 +43,7 @@ function App() {
 				<Route path="/stores/:location" element={<Store />}></Route>
 				<Route path="/restaurants/:id" element={<StoreDetils />}></Route>
 				<Route
-					path="/shopping/:id"
+					path="/shopping/:totalPrice"
 					element={
 						<RequireAuth>
 							<BuyNow />
