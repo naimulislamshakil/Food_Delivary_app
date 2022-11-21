@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { DecressAddToCartAction } from '../../Redux/Action/Action/desressAddToCartAction';
 import { IncressAddToCartAction } from '../../Redux/Action/Action/incressAddToCartAction';
 import { RemoveAddToCartAction } from '../../Redux/Action/Action/removeAddToCartAction.';
 import { SingleAddToCartProduct } from '../../Redux/Action/ActionType/getAddToCartActionType';
-import { RootStore } from '../../Redux/Store';
+// import { RootStore } from '../../Redux/Store';
 
 interface Props {
 	cart: SingleAddToCartProduct;
@@ -13,9 +13,11 @@ interface Props {
 const Item = ({ cart }: Props) => {
 	const dispatch = useDispatch();
 	// const removeAddTo = useSelector((state: RootStore) => state.removeAddToCart);
-	const incressRemoveAddTo = useSelector((state: RootStore) => state.incress);
+	// const incressRemoveAddTo = useSelector((state: RootStore) => state.incress);
 	const [value, setValue] = useState(cart.orderQuantity);
-	const [productPrice, setProductPrice] = useState(cart.price);
+	const [productPrice, setProductPrice] = useState(cart.totalPrice);
+
+	//
 
 	const plus = (id: string) => {
 		// console.log(id);
@@ -26,6 +28,7 @@ const Item = ({ cart }: Props) => {
 		// console.log(price);
 		setValue(numValue);
 		setProductPrice(price);
+		window.location.reload();
 	};
 	const muines = (id: string) => {
 		if (value > 1) {
@@ -34,9 +37,10 @@ const Item = ({ cart }: Props) => {
 			dispatch(DecressAddToCartAction(id, price));
 			setValue(numValue);
 			setProductPrice(price);
+			window.location.reload();
 		}
 	};
-	console.log(incressRemoveAddTo);
+	// console.log(incressRemoveAddTo);
 
 	const removeAddToCart = (id: string) => {
 		dispatch(RemoveAddToCartAction(id));

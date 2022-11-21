@@ -1,17 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import '../../scss/App/App.css';
 import { Scrollbars } from 'react-custom-scrollbars-2';
 import Item from './Item';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootStore } from '../../Redux/Store';
 import { GetAddToCartAction } from '../../Redux/Action/Action/getAddToCartAction';
+// import { SingleAddToCartProduct } from '../../Redux/Action/ActionType/getAddToCartActionType';
 
 const Cart = () => {
-	// const [totalPrice, setTotalPrice] = useState(0);
-
 	const dispatch = useDispatch();
 	const getAddToCarts = useSelector((state: RootStore) => state.getAddToCarts);
+	let totalPrice = getAddToCarts.message?.result.result.reduce(
+		(ack, item) => ack + item.orderQuantity * item.price,
+		0
+	);
 
+	// console.log(totalPrice);
 	const user = JSON.parse(localStorage.getItem('user')!);
 	const { email } = user;
 
@@ -19,12 +23,13 @@ const Cart = () => {
 		dispatch(GetAddToCartAction(email));
 	}, [dispatch, email]);
 
-	// console.log(totalPrice);
 	return (
 		<section className="container-fluid">
 			<h2>Shopping Cart</h2>
 			<p>
-				You have <span className="fw-bold">4</span> item in shopping cart.
+				You have{' '}
+				<span className="fw-bold">{getAddToCarts.message?.result.count}</span>{' '}
+				item in shopping cart.
 			</p>
 
 			<div className="row">
@@ -45,7 +50,7 @@ const Cart = () => {
 
 			<div className="card-total">
 				<h3>
-					Cart Total: <span>20000000৳</span>
+					Cart Total: <span>{totalPrice}৳</span>
 				</h3>
 				<button>CheckOut</button>
 			</div>

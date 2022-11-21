@@ -14,6 +14,7 @@ export type SingleAddToCartProduct = {
 	name: string;
 	price: number;
 	orderQuantity: number;
+	totalPrice: number;
 	quantity: number;
 	status: string;
 	unit: string;
