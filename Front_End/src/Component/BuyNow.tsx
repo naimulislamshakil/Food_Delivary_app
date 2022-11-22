@@ -16,6 +16,11 @@ const BuyNow = () => {
 	const [tax, setTax] = useState(0);
 	const [grandTotal, setGrandTotal] = useState(0);
 	const [user, setUser] = useState<USER>();
+	const [address, setAddress] = useState('');
+	const [address2, setAddress2] = useState('');
+	const [country, setCountry] = useState('');
+	const [state, setState] = useState('');
+	const [zip, setZip] = useState('');
 	const { totalPrice } = useParams();
 
 	// count tax
@@ -30,6 +35,20 @@ const BuyNow = () => {
 			setUser(user);
 		}
 	}, [tax, totalPrice]);
+
+	const placeOrder = () => {
+		const orderDetils = {
+			name: user?.firstName + ' ' + user?.lastName,
+			email: user?.email,
+			phone: user?.contactNumber,
+			address,
+			address2,
+			country,
+			state,
+			zip,
+		};
+		console.log(orderDetils);
+	};
 
 	return (
 		<section className="container-fluid mt-3 p-5">
@@ -120,6 +139,20 @@ const BuyNow = () => {
 								/>
 							</div>
 						</div>
+						<div className="mb-3">
+							<label htmlFor="username">Phone Number</label>
+							<div className="input-group">
+								<input
+									type="text"
+									className="form-control"
+									id="username"
+									value={user?.contactNumber}
+									required
+									readOnly
+									disabled
+								/>
+							</div>
+						</div>
 
 						<div className="mb-3">
 							<label htmlFor="address">Address</label>
@@ -128,6 +161,7 @@ const BuyNow = () => {
 								className="form-control"
 								id="address"
 								placeholder="1234 Main St"
+								onBlur={(e) => setAddress(e.target.value)}
 								required
 							/>
 							<div className="invalid-feedback">
@@ -144,6 +178,7 @@ const BuyNow = () => {
 								className="form-control"
 								id="address2"
 								placeholder="Apartment or suite"
+								onBlur={(e) => setAddress2(e.target.value)}
 							/>
 						</div>
 
@@ -153,6 +188,7 @@ const BuyNow = () => {
 								<select
 									className="custom-select d-block w-100"
 									id="country"
+									onBlur={(e) => setCountry(e.target.value)}
 									required
 								>
 									<option value="">Choose...</option>
@@ -167,21 +203,22 @@ const BuyNow = () => {
 								<select
 									className="custom-select d-block w-100"
 									id="state"
+									onBlur={(e) => setState(e.target.value)}
 									required
 								>
 									<option value="">Choose...</option>
 									<option>Dhaka</option>
-									<option>Dhaka</option>
-									<option>Dhaka</option>
-									<option>Dhaka</option>
-									<option>Dhaka</option>
-									<option>Dhaka</option>
-									<option>Dhaka</option>
-									<option>Dhaka</option>
-									<option>Dhaka</option>
-									<option>Dhaka</option>
-									<option>Dhaka</option>
-									<option>Dhaka</option>
+									<option>Chittagong</option>
+									<option>Sylhet</option>
+									<option>Cox's Bazar</option>
+									<option>Rajshahi</option>
+									<option>Khulna</option>
+									<option>Comilla</option>
+									<option>Barisal</option>
+									<option>Rangpur</option>
+									<option>Pirojpur</option>
+									<option>Chandpur</option>
+									<option>Bhola</option>
 								</select>
 								<div className="invalid-feedback">
 									Please provide a valid state.
@@ -193,6 +230,7 @@ const BuyNow = () => {
 									type="text"
 									className="form-control"
 									id="zip"
+									onBlur={(e) => setZip(e.target.value)}
 									placeholder=""
 									required
 								/>
@@ -294,14 +332,15 @@ const BuyNow = () => {
 								<div className="invalid-feedback">Security code required</div>
 							</div>
 						</div>
-						<form className="mb-4">
+						<div className="mb-4">
 							<button
+								onClick={placeOrder}
 								className="btn btn-primary btn-lg btn-block"
 								type="submit"
 							>
 								Continue to checkout
 							</button>
-						</form>
+						</div>
 					</form>
 				</div>
 			</div>
