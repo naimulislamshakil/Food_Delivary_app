@@ -15,11 +15,11 @@ const NavBar = () => {
 		if (localStorage.getItem('user')) {
 			const user = JSON.parse(window.localStorage.getItem('user')!);
 			setUser(user);
-			console.log(user);
+			// console.log(user);
 			dispatch(GetAddToCartAction(user.email));
 		}
 	}, [dispatch]);
-
+	console.log(user);
 	const logout = () => {
 		localStorage.removeItem('token');
 		localStorage.removeItem('user');

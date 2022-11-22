@@ -58,7 +58,7 @@ const Cart = () => {
 				<h3>
 					Cart Total: <span>{totalPrice}৳</span>
 				</h3>
-				<button onClick={(e) => chackout(totalPrice)}>CheckOut</button>
+				<button onClick={() => chackout(totalPrice)}>CheckOut</button>
 			</div>
 		</section>
 	);

@@ -1,10 +1,36 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+
+interface USER {
+	contactNumber: string;
+	email: string;
+	firstName: string;
+	img: string;
+	lastName: string;
+	role: string;
+	status: string;
+	_id: string;
+}
 
 const BuyNow = () => {
 	const [tax, setTax] = useState(0);
+	const [grandTotal, setGrandTotal] = useState(0);
+	const [user, setUser] = useState<USER>();
 	const { totalPrice } = useParams();
-	console.log(totalPrice);
+
+	// count tax
+	useEffect(() => {
+		if (totalPrice !== undefined) {
+			setTax((5 * parseInt(totalPrice)) / 100);
+			const total = parseInt(totalPrice) + tax;
+			setGrandTotal(total);
+		}
+		if (localStorage.getItem('user')) {
+			const user = JSON.parse(window.localStorage.getItem('user')!);
+			setUser(user);
+		}
+	}, [tax, totalPrice]);
+
 	return (
 		<section className="container-fluid mt-3 p-5">
 			<div className="row">
@@ -27,7 +53,7 @@ const BuyNow = () => {
 								<h6 className="my-0">Tax</h6>
 							</div>
 							<b>
-								<span className="text-muted">৳{totalPrice}</span>
+								<span className="text-muted">৳{tax}</span>
 							</b>
 						</li>
 
@@ -39,8 +65,8 @@ const BuyNow = () => {
 							<span className="text-success">-৳0</span>
 						</li>
 						<li className="list-group-item d-flex justify-content-between">
-							<span>Total (USD)</span>
-							<strong>$20</strong>
+							<span>Total (BDT)</span>
+							<strong>৳{grandTotal}</strong>
 						</li>
 					</ul>
 
@@ -64,13 +90,12 @@ const BuyNow = () => {
 					<form className="needs-validation">
 						<div className="row">
 							<div className="col-md-12 mb-3">
-								<label htmlFor="lastName">Last name</label>
+								<label htmlFor="lastName">Name</label>
 								<input
 									type="text"
 									className="form-control"
 									id="lastName"
-									placeholder=""
-									value=""
+									value={user?.firstName + ' ' + user?.lastName}
 									required
 									readOnly
 									disabled
@@ -82,36 +107,17 @@ const BuyNow = () => {
 						</div>
 
 						<div className="mb-3">
-							<label htmlFor="username">Username</label>
+							<label htmlFor="username">Email</label>
 							<div className="input-group">
-								<div className="input-group-prepend">
-									<span className="input-group-text">@</span>
-								</div>
 								<input
 									type="text"
 									className="form-control"
 									id="username"
-									placeholder="Username"
+									value={user?.email}
 									required
+									readOnly
+									disabled
 								/>
-								<div className="invalid-feedback" style={{ width: '100%' }}>
-									Your username is required.
-								</div>
-							</div>
-						</div>
-
-						<div className="mb-3">
-							<label htmlFor="email">
-								Email <span className="text-muted">(Optional)</span>
-							</label>
-							<input
-								type="email"
-								className="form-control"
-								id="email"
-								placeholder="you@example.com"
-							/>
-							<div className="invalid-feedback">
-								Please enter a valid email address for shipping updates.
 							</div>
 						</div>
 
@@ -150,7 +156,7 @@ const BuyNow = () => {
 									required
 								>
 									<option value="">Choose...</option>
-									<option>United States</option>
+									<option>Bangladesh</option>
 								</select>
 								<div className="invalid-feedback">
 									Please select a valid country.
@@ -164,7 +170,18 @@ const BuyNow = () => {
 									required
 								>
 									<option value="">Choose...</option>
-									<option>California</option>
+									<option>Dhaka</option>
+									<option>Dhaka</option>
+									<option>Dhaka</option>
+									<option>Dhaka</option>
+									<option>Dhaka</option>
+									<option>Dhaka</option>
+									<option>Dhaka</option>
+									<option>Dhaka</option>
+									<option>Dhaka</option>
+									<option>Dhaka</option>
+									<option>Dhaka</option>
+									<option>Dhaka</option>
 								</select>
 								<div className="invalid-feedback">
 									Please provide a valid state.
