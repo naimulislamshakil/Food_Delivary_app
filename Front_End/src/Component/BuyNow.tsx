@@ -1,5 +1,8 @@
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import CheckoutForm from './AddToCart/CheckoutForm';
 
 interface USER {
 	contactNumber: string;
@@ -12,6 +15,9 @@ interface USER {
 	_id: string;
 }
 
+const stripePromise = loadStripe(
+	'pk_test_51M768UKh8Puyw6N9H5rr8w6MwXvRpXIwxl4cbYOxjAjBiXaGzZKAilBytOtH4TrC9fbQEgl8H6HMkDC3S903mRi500axrXflcJ'
+);
 const BuyNow = () => {
 	const [tax, setTax] = useState(0);
 	const [grandTotal, setGrandTotal] = useState(0);
@@ -263,83 +269,10 @@ const BuyNow = () => {
 						</div>
 						<hr className="mb-4" />
 
-						<h4 className="mb-3">Payment</h4>
-
-						<div className="d-block my-3">
-							<div className="custom-control custom-radio">
-								<input
-									id="strip"
-									name="paymentMethod"
-									type="radio"
-									className="custom-control-input active"
-									required
-								/>
-								<label className="custom-control-label ms-2" htmlFor="paypal">
-									Strip
-								</label>
-							</div>
-						</div>
-						<div className="row">
-							<div className="col-md-6 mb-3">
-								<label htmlFor="cc-name">Name on card</label>
-								<input
-									type="text"
-									className="form-control"
-									id="cc-name"
-									placeholder=""
-									required
-								/>
-								<small className="text-muted">
-									Full name as displayed on card
-								</small>
-								<div className="invalid-feedback">Name on card is required</div>
-							</div>
-							<div className="col-md-6 mb-3">
-								<label htmlFor="cc-number">Credit card number</label>
-								<input
-									type="text"
-									className="form-control"
-									id="cc-number"
-									placeholder=""
-									required
-								/>
-								<div className="invalid-feedback">
-									Credit card number is required
-								</div>
-							</div>
-						</div>
-						<div className="row">
-							<div className="col-md-3 mb-3">
-								<label htmlFor="cc-expiration">Expiration</label>
-								<input
-									type="text"
-									className="form-control"
-									id="cc-expiration"
-									placeholder=""
-									required
-								/>
-								<div className="invalid-feedback">Expiration date required</div>
-							</div>
-							<div className="col-md-3 mb-3">
-								<label htmlFor="cc-expiration">CVV</label>
-								<input
-									type="text"
-									className="form-control"
-									id="cc-cvv"
-									placeholder=""
-									required
-								/>
-								<div className="invalid-feedback">Security code required</div>
-							</div>
-						</div>
 						<div className="mb-4">
-							<button
-								onClick={placeOrder}
-								className="btn btn-primary btn-lg btn-block"
-								type="submit"
-							>
-								Continue to checkout
-							</button>
+							<Elements stripe={stripePromise}>
+								<CheckoutForm />
+							</Elements>
 						</div>
 					</form>
 				</div>
