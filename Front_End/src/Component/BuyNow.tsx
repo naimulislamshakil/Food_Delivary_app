@@ -112,7 +112,7 @@ const BuyNow = () => {
 				</div>
 				<div className="col-md-8 order-md-1">
 					<h4 className="mb-3">Billing address</h4>
-					<form className="needs-validation">
+					<div className="needs-validation">
 						<div className="row">
 							<div className="col-md-12 mb-3">
 								<label htmlFor="lastName">Name</label>
@@ -274,7 +274,7 @@ const BuyNow = () => {
 								<CheckoutForm />
 							</Elements>
 						</div>
-					</form>
+					</div>
 				</div>
 			</div>
 		</section>
