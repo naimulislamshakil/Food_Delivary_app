@@ -48,6 +48,7 @@ const BuyNow = () => {
 			email: user?.email,
 			phone: user?.contactNumber,
 			address,
+			totalPrice,
 			address2,
 			country,
 			state,
@@ -271,7 +272,7 @@ const BuyNow = () => {
 
 						<div className="mb-4">
 							<Elements stripe={stripePromise}>
-								<CheckoutForm />
+								<CheckoutForm totalPrice={totalPrice} />
 							</Elements>
 						</div>
 					</div>

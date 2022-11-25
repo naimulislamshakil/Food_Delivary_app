@@ -4,6 +4,9 @@ const verifyToken = require('../../Middleware/verifyToken');
 
 router.route('/addToCart').post(collaction.addToCartCreateCollaction);
 router
+	.route('/create_payment_intent')
+	.post(verifyToken, collaction.createPaymentIntent);
+router
 	.route('/addToCart/incress/:id')
 	.get(collaction.incressAddToCartCollaction);
 router

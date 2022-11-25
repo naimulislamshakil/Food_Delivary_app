@@ -1,10 +1,24 @@
-import React, { FormEvent } from 'react';
+import React, { FormEvent, useEffect } from 'react';
 import { useStripe, CardElement, useElements } from '@stripe/react-stripe-js';
 import { toast } from 'react-toastify';
 
-const CheckoutForm = () => {
+interface Props {
+	totalPrice: string | undefined;
+}
+
+const CheckoutForm = ({ totalPrice }: Props) => {
 	const stripe = useStripe();
 	const elements = useElements();
+
+	useEffect(() => {
+		if (totalPrice) {
+			const total = parseInt(totalPrice);
+			fetch('http://localhost:5000/api/v1/create_payment_intent', {
+				method: 'POST',
+				headers: {},
+			});
+		}
+	}, [totalPrice]);
 
 	const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();

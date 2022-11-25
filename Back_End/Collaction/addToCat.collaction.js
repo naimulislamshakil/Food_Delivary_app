@@ -1,4 +1,5 @@
 const service = require('../Service/addToCart.service');
+const stripe = require('stripe')(process.env.CLIENT_STRIPE_SECRET_kEY);
 
 exports.addToCartCreateCollaction = async (req, res) => {
 	try {
@@ -96,4 +97,19 @@ exports.decressAddToCartCollaction = async (req, res) => {
 			error: error.message,
 		});
 	}
+};
+
+exports.createPaymentIntent = async (req, res) => {
+	const { total } = req.body;
+	console.log(req.body);
+	const amount = total * 100;
+
+	const paymentIntent = await stripe.paymentIntents.create({
+		amount: amount,
+		currency: 'usd',
+		payment_method_types: ['card'],
+	});
+	res.status(200).json({
+		clientSecrect: paymentIntent.client_secret,
+	});
 };
