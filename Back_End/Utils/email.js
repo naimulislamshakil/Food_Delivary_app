@@ -31,8 +31,6 @@ module.exports.sendEmailByGmail = async (data) => {
 		text: data.text,
 	};
 
-	console.log(mailData);
-
 	transport.sendMail(mailData, function (error, result) {
 		if (error) {
 			console.log('error', error);
