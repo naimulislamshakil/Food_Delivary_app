@@ -101,7 +101,7 @@ exports.decressAddToCartCollaction = async (req, res) => {
 
 exports.createPaymentIntent = async (req, res) => {
 	const { total } = req.body;
-	console.log(req.body);
+
 	const amount = total * 100;
 
 	const paymentIntent = await stripe.paymentIntents.create({

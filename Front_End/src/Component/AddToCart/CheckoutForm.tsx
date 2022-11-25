@@ -1,22 +1,32 @@
-import React, { FormEvent, useEffect } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
 import { useStripe, CardElement, useElements } from '@stripe/react-stripe-js';
 import { toast } from 'react-toastify';
 
 interface Props {
 	totalPrice: string | undefined;
+	name: string | undefined;
+	email: string | undefined;
+	placeOrder: (id: string) => void;
 }
 
-const CheckoutForm = ({ totalPrice }: Props) => {
+const CheckoutForm = ({ totalPrice, name, email, placeOrder }: Props) => {
 	const stripe = useStripe();
 	const elements = useElements();
+	const [clientsecrect, setClientsecrect] = useState('');
 
 	useEffect(() => {
 		if (totalPrice) {
 			const total = parseInt(totalPrice);
 			fetch('http://localhost:5000/api/v1/create_payment_intent', {
 				method: 'POST',
-				headers: {},
-			});
+				headers: {
+					'content-type': 'application/json',
+					Authorization: `Bearer ${JSON.parse(localStorage.getItem('token')!)}`,
+				},
+				body: JSON.stringify({ total }),
+			})
+				.then((res) => res.json())
+				.then((data) => setClientsecrect(data.clientSecrect));
 		}
 	}, [totalPrice]);
 
@@ -40,8 +50,24 @@ const CheckoutForm = ({ totalPrice }: Props) => {
 
 		if (error) {
 			toast.error(error.message);
+		}
+
+		const { paymentIntent, error: intentError } =
+			await stripe.confirmCardPayment(clientsecrect, {
+				payment_method: {
+					card: card,
+					billing_details: {
+						name,
+						email,
+					},
+				},
+			});
+
+		if (intentError) {
+			toast.error(intentError?.message);
 		} else {
-			console.log('[PaymentMethod]', paymentMethod);
+			toast.success('Congratulations! Your payment is successfull.');
+			placeOrder(paymentIntent.id);
 		}
 	};
 	return (
@@ -62,7 +88,11 @@ const CheckoutForm = ({ totalPrice }: Props) => {
 					},
 				}}
 			/>
-			<button className="btn btn-danger mt-4 " type="submit" disabled={!stripe}>
+			<button
+				className="btn btn-danger mt-4 "
+				type="submit"
+				disabled={!stripe || !clientsecrect}
+			>
 				Pay
 			</button>
 		</form>

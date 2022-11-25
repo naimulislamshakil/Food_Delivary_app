@@ -42,19 +42,25 @@ const BuyNow = () => {
 		}
 	}, [tax, totalPrice]);
 
-	const placeOrder = () => {
-		const orderDetils = {
-			name: user?.firstName + ' ' + user?.lastName,
-			email: user?.email,
-			phone: user?.contactNumber,
-			address,
-			totalPrice,
-			address2,
-			country,
-			state,
-			zip,
-		};
-		console.log(orderDetils);
+	const name = user?.firstName + ' ' + user?.lastName;
+	const email = user?.email;
+
+	const placeOrder = (id: string) => {
+		if (id) {
+			const orderDetils = {
+				name: user?.firstName + ' ' + user?.lastName,
+				email: user?.email,
+				phone: user?.contactNumber,
+				address,
+				id,
+				totalPrice,
+				address2,
+				country,
+				state,
+				zip,
+			};
+			console.log(orderDetils);
+		}
 	};
 
 	return (
@@ -272,7 +278,12 @@ const BuyNow = () => {
 
 						<div className="mb-4">
 							<Elements stripe={stripePromise}>
-								<CheckoutForm totalPrice={totalPrice} />
+								<CheckoutForm
+									totalPrice={totalPrice}
+									name={name}
+									email={email}
+									placeOrder={placeOrder}
+								/>
 							</Elements>
 						</div>
 					</div>
