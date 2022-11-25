@@ -2,6 +2,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import CheckoutForm from './AddToCart/CheckoutForm';
 
 interface USER {
@@ -53,13 +54,23 @@ const BuyNow = () => {
 				phone: user?.contactNumber,
 				address,
 				id,
-				totalPrice,
+				totalPrice: grandTotal,
 				address2,
 				country,
 				state,
 				zip,
 			};
-			console.log(orderDetils);
+			fetch('http://localhost:5000/api/v1/payment', {
+				method: 'POST',
+				headers: {
+					'content-type': 'application/json',
+					Authorization: `Bearer ${JSON.parse(localStorage.getItem('token')!)}`,
+				},
+				body: JSON.stringify(orderDetils),
+			})
+				.then((res) => res.json())
+				.then((data) => toast.success(data.message))
+				.catch((err) => toast.error(err.message));
 		}
 	};
 
