@@ -5,6 +5,19 @@ exports.paymentCollaction = async (req, res) => {
 		const data = req.body;
 		const { email } = req.user;
 		const result = await service.paymentService(data, email);
+
+		const mailData = {
+			to: result.email,
+			subject: 'Congratulations! Your payment is successfull.',
+			text: `Hi ${result.name},
+			Congratulations! Your payment is successfull.
+			Your Trangation id is: ${result.id}. You total pay $${result.totalPrice},
+			Have a great day,
+			Naimul Islam.
+			`,
+		};
+
+		await sendEmailByGmail(mailData);
 		return res.status(200).json({
 			status: 'Success',
 			message: 'Payment Successfully Save.',
