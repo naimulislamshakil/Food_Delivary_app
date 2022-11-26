@@ -139,7 +139,7 @@ exports.confirmEmail = async (req, res) => {
 
 exports.saveImage = async (req, res) => {
 	try {
-		res.status(200).json(req.file);
+		res.status(200).json(req.file.filename);
 	} catch (error) {
 		res.status(500).json({
 			status: 'Faild',
