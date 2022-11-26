@@ -147,3 +147,23 @@ exports.saveImage = async (req, res) => {
 		});
 	}
 };
+
+exports.updateProfileCollaction = async (req, res) => {
+	try {
+		const { email } = req.user;
+		const { lastName, contactNumber } = req.body;
+		const data = { lastName, contactNumber };
+
+		const result = await userService.updateProfileService(data, email);
+		console.log(result);
+		res.status(200).json({
+			status: 'Success',
+			message: 'Your Account Update Successfully.',
+		});
+	} catch (error) {
+		res.status(500).json({
+			status: 'Faild',
+			error: error.message,
+		});
+	}
+};

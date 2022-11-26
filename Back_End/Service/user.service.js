@@ -16,3 +16,12 @@ exports.userPersistenceService = async (email) => {
 exports.confirmEmailService = async (token) => {
 	return await User.findOne({ confirmationToken: token });
 };
+
+exports.updateProfileService = async (data, email) => {
+	const findUser = await User.updateOne(
+		{ email },
+		{ $set: data },
+		{ upsert: true }
+	);
+	return findUser;
+};
