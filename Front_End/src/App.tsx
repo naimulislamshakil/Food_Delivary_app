@@ -21,6 +21,7 @@ import './scss/App/App.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Cart from './Component/AddToCart/Cart';
+import ThankYou from './Component/ThankYou';
 
 function App() {
 	const dispatch = useDispatch();
@@ -42,6 +43,7 @@ function App() {
 				<Route path="/all_foods" element={<Location />}></Route>
 				<Route path="/stores/:location" element={<Store />}></Route>
 				<Route path="/restaurants/:id" element={<StoreDetils />}></Route>
+				<Route path="/thankyou" element={<ThankYou />}></Route>
 				<Route
 					path="/shopping/:totalPrice"
 					element={

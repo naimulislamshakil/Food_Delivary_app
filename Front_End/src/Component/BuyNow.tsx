@@ -1,7 +1,7 @@
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import CheckoutForm from './AddToCart/CheckoutForm';
 
@@ -20,6 +20,7 @@ const stripePromise = loadStripe(
 	'pk_test_51M768UKh8Puyw6N9H5rr8w6MwXvRpXIwxl4cbYOxjAjBiXaGzZKAilBytOtH4TrC9fbQEgl8H6HMkDC3S903mRi500axrXflcJ'
 );
 const BuyNow = () => {
+	const navigate = useNavigate();
 	const [tax, setTax] = useState(0);
 	const [grandTotal, setGrandTotal] = useState(0);
 	const [user, setUser] = useState<USER>();
@@ -69,7 +70,11 @@ const BuyNow = () => {
 				body: JSON.stringify(orderDetils),
 			})
 				.then((res) => res.json())
-				.then((data) => toast.success(data.message))
+				.then((data) => {
+					toast.success(data.message);
+					window.location.reload();
+					navigate('/thankyou');
+				})
 				.catch((err) => toast.error(err.message));
 		}
 	};
