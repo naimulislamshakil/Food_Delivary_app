@@ -155,10 +155,33 @@ exports.updateProfileCollaction = async (req, res) => {
 		const data = { lastName, contactNumber };
 
 		const result = await userService.updateProfileService(data, email);
-		console.log(result);
+
 		res.status(200).json({
 			status: 'Success',
 			message: 'Your Account Update Successfully.',
+		});
+	} catch (error) {
+		res.status(500).json({
+			status: 'Faild',
+			error: error.message,
+		});
+	}
+};
+
+exports.changePasswordCollaction = async (req, res) => {
+	try {
+		const { email } = req.user;
+		const { oldPassword, newPassword } = req.body;
+
+		const result = await userService.changePasswordService(
+			oldPassword,
+			newPassword,
+			email
+		);
+
+		res.status(200).json({
+			status: 'Success',
+			message: 'Your Password Update Successfully.',
 		});
 	} catch (error) {
 		res.status(500).json({

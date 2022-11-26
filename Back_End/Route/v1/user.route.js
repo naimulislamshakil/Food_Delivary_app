@@ -10,6 +10,9 @@ router
 router
 	.route('/user/update')
 	.put(verifyToken, userCollaction.updateProfileCollaction);
+router
+	.route('/user/changePassword')
+	.put(verifyToken, userCollaction.changePasswordCollaction);
 router.route('/user').post(userCollaction.createAUserCollaction);
 router.route('/user/confirmation/:token').get(userCollaction.confirmEmail);
 router.route('/login').post(userCollaction.loginUserCollaction);
