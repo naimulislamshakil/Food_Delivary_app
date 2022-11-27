@@ -6,3 +6,8 @@ exports.paymentService = async (data, email) => {
 	const findByEmail = await AddToCart.deleteMany({ email });
 	return result;
 };
+
+exports.getPaymentService = async (email) => {
+	const result = await Payment.find({ email });
+	return result;
+};

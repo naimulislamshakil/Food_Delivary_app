@@ -29,3 +29,20 @@ exports.paymentCollaction = async (req, res) => {
 		});
 	}
 };
+
+exports.getPaymentCollaction = async (req, res) => {
+	try {
+		const { email } = req.user;
+		const result = await service.getPaymentService(email);
+		res.status(200).json({
+			status: 'Success',
+			message: 'You Have Payment.',
+			result,
+		});
+	} catch (error) {
+		return res.status(500).json({
+			status: 'Fail',
+			message: 'You Have Not Any Payments.',
+		});
+	}
+};
