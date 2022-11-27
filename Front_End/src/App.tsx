@@ -22,6 +22,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Cart from './Component/AddToCart/Cart';
 import ThankYou from './Component/ThankYou';
+import AllOrder from './Component/Dashboard/AllOrder';
 
 function App() {
 	const dispatch = useDispatch();
@@ -71,7 +72,9 @@ function App() {
 							<Dashboard />
 						</RequireAuth>
 					}
-				></Route>
+				>
+					<Route index element={<AllOrder />}></Route>
+				</Route>
 				<Route path="*" element={<NotFound />}></Route>
 			</Routes>
 			<Fooder />
