@@ -31,6 +31,7 @@ app.use('/api/v1', productRoute);
 app.use('/api/v1', userRoute);
 app.use('/api/v1', addToCartRoute);
 app.use('/api/v1', paymentRoute);
+app.use('/photo', express.static('images'));
 
 // Home Route
 app.get('/', (req, res) => {
