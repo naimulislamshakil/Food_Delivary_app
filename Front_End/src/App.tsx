@@ -23,6 +23,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Cart from './Component/AddToCart/Cart';
 import ThankYou from './Component/ThankYou';
 import AllOrder from './Component/Dashboard/AllOrder';
+import UpdateProfile from './Component/Dashboard/UpdateProfile';
 
 function App() {
 	const dispatch = useDispatch();
@@ -74,6 +75,10 @@ function App() {
 					}
 				>
 					<Route index element={<AllOrder />}></Route>
+					<Route
+						path="/dashboard/update_profile"
+						element={<UpdateProfile />}
+					></Route>
 				</Route>
 				<Route path="*" element={<NotFound />}></Route>
 			</Routes>

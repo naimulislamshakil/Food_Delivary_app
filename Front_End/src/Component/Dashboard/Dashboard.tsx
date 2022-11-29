@@ -6,12 +6,18 @@ const Dashboard = () => {
 	return (
 		<div>
 			<div className="sidebar">
-				<Link to="/dashboard" className="active">
+				<Link to="/dashboard" className="active fw-bold">
 					All Order
 				</Link>
-				<a href="#news">News</a>
-				<a href="#contact">Contact</a>
-				<a href="#about">About</a>
+				<Link className="fw-bold" to="/dashboard/update_profile">
+					Update Profile
+				</Link>
+				<a href="#contact" className="fw-bold">
+					Contact
+				</a>
+				<a href="#about" className="fw-bold">
+					About
+				</a>
 			</div>
 
 			{/* <!-- Page content --> */}
