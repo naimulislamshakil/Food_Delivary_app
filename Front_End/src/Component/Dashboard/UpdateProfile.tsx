@@ -1,6 +1,31 @@
-import React from 'react';
+import React, { FormEvent, useState } from 'react';
+import { toast } from 'react-toastify';
 
 const UpdateProfile = () => {
+	const [first, setFirst] = useState('');
+	const [last, setLast] = useState('');
+	const [phone, setPhone] = useState('');
+
+	const updateProfile = (e: FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		const data = {
+			contactNumber: phone,
+			lastName: last,
+			firstName: first,
+		};
+
+		fetch('http://localhost:5000/api/v1/user/update', {
+			method: 'PUT',
+			headers: {
+				'content-type': 'application/json',
+				Authorization: `Bearer ${JSON.parse(localStorage.getItem('token')!)}`,
+			},
+			body: JSON.stringify(data),
+		})
+			.then((res) => res.json())
+			.then((data) => toast.success(data.message))
+			.catch((err) => toast.error(err.message));
+	};
 	return (
 		<section>
 			<h2 className="text-success">UPDAE PROFILE....</h2>
@@ -33,7 +58,7 @@ const UpdateProfile = () => {
 						<div className="card mb-4">
 							<div className="card-header">Account Details</div>
 							<div className="card-body">
-								<form>
+								<form onSubmit={updateProfile}>
 									{/* <!-- Form Row--> */}
 									<div className="row gx-3 mb-3">
 										{/* <!-- Form Group (first name)--> */}
@@ -42,6 +67,7 @@ const UpdateProfile = () => {
 												First name
 											</label>
 											<input
+												onBlur={(e) => setFirst(e.target.value)}
 												className="form-control"
 												id="inputFirstName"
 												type="text"
@@ -54,6 +80,7 @@ const UpdateProfile = () => {
 												Last name
 											</label>
 											<input
+												onBlur={(e) => setLast(e.target.value)}
 												className="form-control"
 												id="inputLastName"
 												type="text"
@@ -70,6 +97,7 @@ const UpdateProfile = () => {
 												Phone number
 											</label>
 											<input
+												onBlur={(e) => setPhone(e.target.value)}
 												className="form-control"
 												id="inputPhone"
 												type="tel"
@@ -78,9 +106,11 @@ const UpdateProfile = () => {
 										</div>
 									</div>
 									{/* <!-- Save changes button--> */}
-									<button className="btn btn-primary" type="button">
-										Save changes
-									</button>
+									<input
+										type="submit"
+										value="Save changes"
+										className="btn btn-primary"
+									/>
 								</form>
 							</div>
 						</div>
