@@ -24,6 +24,7 @@ import Cart from './Component/AddToCart/Cart';
 import ThankYou from './Component/ThankYou';
 import AllOrder from './Component/Dashboard/AllOrder';
 import UpdateProfile from './Component/Dashboard/UpdateProfile';
+import ChangePassword from './Component/Dashboard/ChangePassword';
 
 function App() {
 	const dispatch = useDispatch();
@@ -75,6 +76,10 @@ function App() {
 					}
 				>
 					<Route index element={<AllOrder />}></Route>
+					<Route
+						path="/dashboard/change_password"
+						element={<ChangePassword />}
+					></Route>
 					<Route
 						path="/dashboard/update_profile"
 						element={<UpdateProfile />}

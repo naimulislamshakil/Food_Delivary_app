@@ -155,7 +155,7 @@ exports.updateProfileCollaction = async (req, res) => {
 		const data = { lastName, contactNumber, firstName };
 
 		const result = await userService.updateProfileService(data, email);
-		console.log(req.body);
+		// console.log(req.body);
 
 		res.status(200).json({
 			status: 'Success',

@@ -12,9 +12,9 @@ const Dashboard = () => {
 				<Link className="fw-bold" to="/dashboard/update_profile">
 					Update Profile
 				</Link>
-				<a href="#contact" className="fw-bold">
-					Contact
-				</a>
+				<Link to="/dashboard/change_password" className="fw-bold">
+					Change Password
+				</Link>
 				<a href="#about" className="fw-bold">
 					About
 				</a>
