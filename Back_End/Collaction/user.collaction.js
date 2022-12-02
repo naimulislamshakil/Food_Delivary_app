@@ -135,8 +135,8 @@ exports.saveImage = async (req, res) => {
 exports.updateProfileCollaction = async (req, res) => {
 	try {
 		const { email } = req.user;
-		const { lastName, contactNumber, firstName } = req.body;
-		const data = { lastName, contactNumber, firstName };
+		const { lastName, contactNumber, firstName, store, location } = req.body;
+		const data = { lastName, contactNumber, firstName, store, location };
 
 		const result = await userService.updateProfileService(data, email);
 		// console.log(req.body);

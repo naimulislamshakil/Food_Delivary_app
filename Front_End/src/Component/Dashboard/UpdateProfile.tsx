@@ -5,6 +5,8 @@ const UpdateProfile = () => {
 	const [first, setFirst] = useState('');
 	const [last, setLast] = useState('');
 	const [phone, setPhone] = useState('');
+	const [store, setStore] = useState('');
+	const [address, setAddress] = useState('');
 
 	const updateProfile = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -12,6 +14,8 @@ const UpdateProfile = () => {
 			contactNumber: phone,
 			lastName: last,
 			firstName: first,
+			store,
+			location: address,
 		};
 
 		fetch('http://localhost:5000/api/v1/user/update', {
@@ -104,7 +108,35 @@ const UpdateProfile = () => {
 												placeholder="Enter your phone number"
 											/>
 										</div>
+										<div className="col-md-6">
+											<label className="small mb-1" htmlFor="inputLastName">
+												Store Name
+											</label>
+											<input
+												onBlur={(e) => setStore(e.target.value)}
+												className="form-control"
+												id="inputLastName"
+												type="text"
+												placeholder="Enter your Store Name"
+											/>
+										</div>
 									</div>
+
+									<div className="row gx-3 mb-3">
+										<div className="col-12">
+											<label className="small mb-1" htmlFor="inputLastName">
+												Store Location
+											</label>
+											<input
+												onBlur={(e) => setAddress(e.target.value)}
+												className="form-control"
+												id="inputLastName"
+												type="text"
+												placeholder="Enter your Store Location"
+											/>
+										</div>
+									</div>
+
 									{/* <!-- Save changes button--> */}
 									<input
 										type="submit"

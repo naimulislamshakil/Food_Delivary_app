@@ -54,6 +54,8 @@ const userSchma = mongoose.Schema(
 				'Please provide a valid contact number.',
 			],
 		},
+		store: String,
+		location: String,
 		img: {
 			type: String,
 			validate: [validator.isURL, 'Please provide a valid url.'],
