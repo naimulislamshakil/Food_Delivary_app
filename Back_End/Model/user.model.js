@@ -56,6 +56,7 @@ const userSchma = mongoose.Schema(
 		},
 		store: String,
 		location: String,
+		place: String,
 		img: {
 			type: String,
 			validate: [validator.isURL, 'Please provide a valid url.'],

@@ -25,6 +25,7 @@ import ThankYou from './Component/ThankYou';
 import AllOrder from './Component/Dashboard/AllOrder';
 import UpdateProfile from './Component/Dashboard/UpdateProfile';
 import ChangePassword from './Component/Dashboard/ChangePassword';
+import AddProduct from './Component/Dashboard/AddProduct';
 
 function App() {
 	const dispatch = useDispatch();
@@ -84,6 +85,7 @@ function App() {
 						path="/dashboard/update_profile"
 						element={<UpdateProfile />}
 					></Route>
+					<Route path="/dashboard/add_product" element={<AddProduct />}></Route>
 				</Route>
 				<Route path="*" element={<NotFound />}></Route>
 			</Routes>

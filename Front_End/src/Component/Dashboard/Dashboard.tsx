@@ -45,7 +45,7 @@ const Dashboard = () => {
 						<Link to="/dashboard/change_password" className="fw-bold">
 							Change Password
 						</Link>
-						<Link to="/dashboard/change_password" className="fw-bold">
+						<Link to="/dashboard/add_product" className="fw-bold">
 							Add Product
 						</Link>
 						<Link to="/dashboard/change_password" className="fw-bold">
