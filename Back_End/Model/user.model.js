@@ -9,7 +9,7 @@ const userSchma = mongoose.Schema(
 			type: String,
 			required: [true, 'This field is require.'],
 			lowercase: true,
-			unique: true,
+			unique: [true, 'Email is unique.'],
 			trim: true,
 			validate: [validator.isEmail, 'Provide a valid email.'],
 		},
@@ -60,7 +60,7 @@ const userSchma = mongoose.Schema(
 		},
 		status: {
 			type: String,
-			default: 'In-Active',
+			default: 'Active',
 			enum: ['Active', 'In-Active'],
 		},
 
@@ -85,17 +85,6 @@ userSchma.pre('save', function (next) {
 	this.password = hashPassword;
 	next();
 });
-
-userSchma.methods.generateConfirmToken = function () {
-	const token = crypto.randomBytes(32).toString('hex');
-
-	const date = new Date();
-	date.setDate(date.getDate() + 1);
-
-	this.confirmationToken = token;
-	this.confirmationTokenExpire = date;
-	return token;
-};
 
 const User = mongoose.model('User', userSchma);
 

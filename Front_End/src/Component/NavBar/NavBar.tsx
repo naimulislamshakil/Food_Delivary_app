@@ -19,7 +19,7 @@ const NavBar = () => {
 			dispatch(GetAddToCartAction(user.email));
 		}
 	}, [dispatch]);
-	console.log(user);
+
 	const logout = () => {
 		localStorage.removeItem('token');
 		localStorage.removeItem('user');

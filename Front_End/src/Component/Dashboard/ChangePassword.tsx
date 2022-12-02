@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 
 const ChangePassword = () => {
 	const [old, setOld] = useState('');
 	const [newPass, setNew] = useState('');
 	const [confirm, setConfirm] = useState('');
 	const changePassword = () => {
+		const data = {
+			oldPassword: old,
+			newPassword: newPass,
+		};
 		if (newPass === confirm) {
 			fetch('http://localhost:5000/api/v1/user/changePassword', {
 				method: 'PUT',
@@ -13,7 +18,10 @@ const ChangePassword = () => {
 					Authorization: `Bearer ${JSON.parse(localStorage.getItem('token')!)}`,
 				},
 				body: JSON.stringify(data),
-			});
+			})
+				.then((res) => res.json())
+				.then((data) => toast.success(data.message))
+				.catch((err) => toast.error(err.message));
 		}
 	};
 	return (
