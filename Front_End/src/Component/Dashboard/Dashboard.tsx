@@ -19,6 +19,21 @@ const Dashboard = () => {
 	return (
 		<div>
 			<div className="sidebar">
+				{/* for user */}
+				{user?.role === 'user' && (
+					<>
+						<Link to="/dashboard" className="active fw-bold">
+							All Order
+						</Link>
+						<Link className="fw-bold" to="/dashboard/update_profile">
+							Update Profile
+						</Link>
+						<Link to="/dashboard/change_password" className="fw-bold">
+							Change Password
+						</Link>
+					</>
+				)}
+
 				{user?.role === 'store-manager' && (
 					<>
 						<Link to="/dashboard" className="active fw-bold">
