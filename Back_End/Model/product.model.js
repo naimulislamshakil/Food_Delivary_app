@@ -44,6 +44,9 @@ const productSchma = mongoose.Schema(
 			required: [true, 'This field is require.'],
 			min: [0, "Price can't be negative."],
 		},
+		store: String,
+		location: String,
+		place: String,
 		img: {
 			type: String,
 			required: [true, 'This field is require.'],

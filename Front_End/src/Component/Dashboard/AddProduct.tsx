@@ -1,6 +1,36 @@
-import React from 'react';
+import React, { FormEvent, useState } from 'react';
 
 const AddProduct = () => {
+	const [name, setName] = useState('');
+	const [quantity, setQuantity] = useState('');
+	const [unit, setUnit] = useState('');
+	const [description, setDescription] = useState('');
+	const [price, setPrice] = useState('');
+	const [img, setImg] = useState('');
+	const [category, setCatagory] = useState('');
+	const [storeName, setStoreName] = useState('');
+	const [location, setLocation] = useState('');
+	const [place, setPlace] = useState('');
+
+	const addProduct = (e: FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+
+		const data = {
+			name,
+			quantity,
+			unit,
+			description,
+			price,
+			store: storeName,
+			location,
+			place,
+			img,
+			category,
+		};
+
+		console.log(data);
+	};
+
 	return (
 		<section>
 			<div className="col-12">
@@ -8,7 +38,7 @@ const AddProduct = () => {
 				<div className="card mb-4">
 					<div className="card-header">Add Product...</div>
 					<div className="card-body">
-						<form>
+						<form onSubmit={addProduct}>
 							{/* <!-- Form Row--> */}
 							<div className="row gx-3 mb-3">
 								{/* <!-- Form Group (first name)--> */}
@@ -17,7 +47,7 @@ const AddProduct = () => {
 										Product Name
 									</label>
 									<input
-										// onBlur={(e) => setFirst(e.target.value)}
+										onBlur={(e) => setName(e.target.value)}
 										className="form-control"
 										id="inputFirstName"
 										type="text"
@@ -30,7 +60,7 @@ const AddProduct = () => {
 										Quantity
 									</label>
 									<input
-										// onBlur={(e) => setLast(e.target.value)}
+										onBlur={(e) => setQuantity(e.target.value)}
 										className="form-control"
 										id="inputLastName"
 										type="text"
@@ -47,7 +77,7 @@ const AddProduct = () => {
 										Price
 									</label>
 									<input
-										// onBlur={(e) => setPhone(e.target.value)}
+										onBlur={(e) => setPrice(e.target.value)}
 										className="form-control"
 										id="inputPhone"
 										type="text"
@@ -59,7 +89,7 @@ const AddProduct = () => {
 										Store Name
 									</label>
 									<input
-										// onBlur={(e) => setStore(e.target.value)}
+										onBlur={(e) => setStoreName(e.target.value)}
 										className="form-control"
 										id="inputLastName"
 										type="text"
@@ -74,7 +104,7 @@ const AddProduct = () => {
 										Store Location
 									</label>
 									<input
-										// onBlur={(e) => setAddress(e.target.value)}
+										onBlur={(e) => setLocation(e.target.value)}
 										className="form-control"
 										id="inputLastName"
 										type="text"
@@ -88,7 +118,7 @@ const AddProduct = () => {
 										Store Place
 									</label>
 									<input
-										// onBlur={(e) => setPlace(e.target.value)}
+										onBlur={(e) => setPlace(e.target.value)}
 										className="form-control"
 										id="inputLastName"
 										type="text"
@@ -103,7 +133,7 @@ const AddProduct = () => {
 										Product Image
 									</label>
 									<input
-										// onBlur={(e) => setPlace(e.target.value)}
+										onBlur={(e) => setImg(e.target.value)}
 										className="form-control"
 										id="inputLastName"
 										type="text"
@@ -118,6 +148,7 @@ const AddProduct = () => {
 										Product Unit
 									</label>
 									<select
+										onBlur={(e) => setUnit(e.target.value)}
 										className="form-select"
 										aria-label="Default select example"
 									>
@@ -134,6 +165,7 @@ const AddProduct = () => {
 										Product Catagory
 									</label>
 									<select
+										onBlur={(e) => setCatagory(e.target.value)}
 										className="form-select"
 										aria-label="Default select example"
 									>
@@ -154,6 +186,7 @@ const AddProduct = () => {
 										Product Description
 									</label>
 									<textarea
+										onBlur={(e) => setDescription(e.target.value)}
 										className="form-control"
 										placeholder="Leave a comment here"
 										id="floatingTextarea2"
