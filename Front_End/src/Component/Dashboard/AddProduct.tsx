@@ -1,4 +1,5 @@
 import React, { FormEvent, useState } from 'react';
+import { toast } from 'react-toastify';
 
 const AddProduct = () => {
 	const [name, setName] = useState('');
@@ -12,8 +13,12 @@ const AddProduct = () => {
 	const [location, setLocation] = useState('');
 	const [place, setPlace] = useState('');
 
-	const addProduct = (e: FormEvent<HTMLFormElement>) => {
+	const addProduct = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
+
+		fetch(`https://food-delevary.onrender.com/api/v1/getSingle/${storeName}`)
+			.then((res) => res.json())
+			.then((data) => console.log(data));
 
 		const data = {
 			name,
@@ -28,7 +33,17 @@ const AddProduct = () => {
 			category,
 		};
 
-		console.log(data);
+		// fetch('https://food-delevary.onrender.com/api/v1/product', {
+		// 	method: 'POST',
+		// 	headers: {
+		// 		'content-type': 'application/json',
+		// 		Authorization: `Bearer ${JSON.parse(localStorage.getItem('token')!)}`,
+		// 	},
+		// 	body: JSON.stringify(data),
+		// })
+		// 	.then((res) => res.json())
+		// 	.then((data) => toast.success(data.message))
+		// 	.catch((err) => toast.error(err.message));
 	};
 
 	return (

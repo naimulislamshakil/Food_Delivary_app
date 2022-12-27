@@ -18,3 +18,9 @@ exports.postAProductService = async (product) => {
 exports.getAllProductService = async () => {
 	return await Product.find({});
 };
+
+exports.getSingleService = async (store) => {
+	const findByStore = await Store.Store.findOne({ name: store });
+	const { _id } = findByStore;
+	console.log(_id);
+};

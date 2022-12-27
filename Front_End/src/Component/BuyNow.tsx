@@ -61,7 +61,7 @@ const BuyNow = () => {
 				state,
 				zip,
 			};
-			fetch('http://localhost:5000/api/v1/payment', {
+			fetch('https://food-delevary.onrender.com/api/v1/payment', {
 				method: 'POST',
 				headers: {
 					'content-type': 'application/json',

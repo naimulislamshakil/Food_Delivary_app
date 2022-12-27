@@ -19,7 +19,10 @@ export const LoginAction =
 				type: LOGIN_LOADING,
 			});
 
-			const res = await axios.post('http://localhost:5000/api/v1/login', user);
+			const res = await axios.post(
+				'https://food-delevary.onrender.com/api/v1/login',
+				user
+			);
 			dispatch({
 				type: LOGIN_SUSSESS,
 				payload: res.data,

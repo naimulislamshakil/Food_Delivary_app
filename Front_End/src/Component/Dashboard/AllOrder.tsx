@@ -21,7 +21,7 @@ const AllOrder = () => {
 	const [orders, setOrder] = useState<Order[]>();
 
 	useEffect(() => {
-		fetch('http://localhost:5000/api/v1/get/payment', {
+		fetch('https://food-delevary.onrender.com/api/v1/get/payment', {
 			method: 'GET',
 			headers: {
 				'content-type': 'application/json',

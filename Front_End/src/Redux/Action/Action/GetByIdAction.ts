@@ -15,7 +15,9 @@ export const GetSingleStoreAction =
 				type: PER_STORE_LOADING,
 			});
 
-			const res = await axios.get(`http://localhost:5000/api/v1/store/${id}`);
+			const res = await axios.get(
+				`https://food-delevary.onrender.com/api/v1/store/${id}`
+			);
 
 			dispatch({
 				type: PER_STORE_SUCCESS,

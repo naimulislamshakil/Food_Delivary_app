@@ -30,3 +30,16 @@ exports.getAllProductCollaction = async (req, res) => {
 		});
 	}
 };
+
+exports.getSingleStore = async (req, res) => {
+	try {
+		const { name } = req.params;
+		const result = await productService.getSingleService(name);
+		res.send(result);
+	} catch (error) {
+		res.status(500).json({
+			status: 'Faild',
+			error: error.message,
+		});
+	}
+};

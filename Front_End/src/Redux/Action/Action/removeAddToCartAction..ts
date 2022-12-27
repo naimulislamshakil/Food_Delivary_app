@@ -15,7 +15,7 @@ export const RemoveAddToCartAction =
 			});
 
 			const res = await axios.delete(
-				`http://localhost:5000/api/v1/removeAddToCart/${id}`
+				`https://food-delevary.onrender.com/api/v1/removeAddToCart/${id}`
 			);
 
 			dispatch({

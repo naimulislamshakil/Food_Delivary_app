@@ -11,7 +11,7 @@ const ChangePassword = () => {
 			newPassword: newPass,
 		};
 		if (newPass === confirm) {
-			fetch('http://localhost:5000/api/v1/user/changePassword', {
+			fetch('https://food-delevary.onrender.com/api/v1/user/changePassword', {
 				method: 'PUT',
 				headers: {
 					'content-type': 'application/json',

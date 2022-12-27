@@ -15,7 +15,7 @@ export const GetAddToCartAction =
 			});
 
 			const res = await axios.get(
-				`http://localhost:5000/api/v1/addToCart/${email}`
+				`https://food-delevary.onrender.com/api/v1/addToCart/${email}`
 			);
 
 			dispatch({

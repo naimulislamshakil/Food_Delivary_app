@@ -17,7 +17,7 @@ const CheckoutForm = ({ totalPrice, name, email, placeOrder }: Props) => {
 	useEffect(() => {
 		if (totalPrice) {
 			const total = parseInt(totalPrice);
-			fetch('http://localhost:5000/api/v1/create_payment_intent', {
+			fetch('https://food-delevary.onrender.com/api/v1/create_payment_intent', {
 				method: 'POST',
 				headers: {
 					'content-type': 'application/json',

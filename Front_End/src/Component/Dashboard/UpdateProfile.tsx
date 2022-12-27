@@ -20,7 +20,7 @@ const UpdateProfile = () => {
 			place,
 		};
 
-		fetch('http://localhost:5000/api/v1/user/update', {
+		fetch('https://food-delevary.onrender.com/api/v1/user/update', {
 			method: 'PUT',
 			headers: {
 				'content-type': 'application/json',

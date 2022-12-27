@@ -15,7 +15,7 @@ export const PersistenceAction =
 			});
 
 			const res = await axios.get(
-				'http://localhost:5000/api/v1/user/persistence',
+				'https://food-delevary.onrender.com/api/v1/user/persistence',
 				{
 					method: 'GET',
 					headers: {

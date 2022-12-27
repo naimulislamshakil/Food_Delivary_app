@@ -16,7 +16,7 @@ export const DecressAddToCartAction =
 			});
 
 			const res = await axios.get(
-				`http://localhost:5000/api/v1//addToCart/decress/${id}?price=${price}`
+				`https://food-delevary.onrender.com/api/v1//addToCart/decress/${id}?price=${price}`
 			);
 
 			dispatch({
